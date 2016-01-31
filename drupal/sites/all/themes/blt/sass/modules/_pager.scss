@@ -1,0 +1,10 @@
+// Views pagination
+// ---------------------------
+
+.pagination > li > {
+  a,
+  span {
+    font-weight: normal;
+    font-size: $font-size-base;
+  }
+}

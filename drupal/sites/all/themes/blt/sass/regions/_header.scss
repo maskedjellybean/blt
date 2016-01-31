@@ -1,0 +1,203 @@
+// Header/navbar/main menu & secondary menu
+// ---------------------------
+
+// === Main menu
+
+header.navbar {
+  margin-bottom: 0;
+  -webkit-font-smoothing: auto;
+  background-color: transparent;
+
+  // Logo
+  .navbar-header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .logo {
+      width: $header-logo-width--mobile;
+    }
+  }
+
+  // Main menu
+  .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    a {
+      padding: 12px 10px 8px;
+      border-bottom-width: 5px;
+      border-bottom-style: solid;
+      border-bottom-color: transparent;
+      @extend .link-color--dark;
+      &.active,
+      &.active-trail {
+        font-weight: bold;
+        color: $color-brand-primary;
+        border-bottom-color: $color-brand-primary;
+      }
+    }
+  }
+
+  // Desktop
+
+  @include media(md) {
+    height: $header-height--desktop;
+    .navbar-container {
+      position: relative;
+      height: $header-height--desktop;
+    }
+    // Logo
+    .navbar-header {
+      width: $header-logo-width--desktop;
+      margin-top: 25px;
+      margin-bottom: 0;
+      .logo {
+        width: auto;
+      }
+    }
+    // Main menu
+    .navbar-collapse {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    .navbar-nav {
+      a {
+        &:hover,
+        &:focus {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  // Change main menu colors based on site section
+  .section-involved & {
+    .navbar-nav a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-involved;
+        border-bottom-color: $color-brand-involved;
+      }
+    }
+  }
+  .section-are & {
+    .navbar-nav a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-are;
+        border-bottom-color: $color-brand-are;
+      }
+    }
+  }
+  .section-do & {
+    .navbar-nav a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-do;
+        border-bottom-color: $color-brand-do;
+      }
+    }
+  }
+  .section-events & {
+    .navbar-nav a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-primary;
+        border-bottom-color: $color-brand-primary;
+      }
+    }
+  }
+  .section-blog & {
+    .navbar-nav a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-blog;
+        border-bottom-color: $color-brand-blog;
+      }
+    }
+  }
+}
+
+// === Mobile nav toggle
+
+.navbar-toggle {
+  background-color: $color-black;
+  .icon-bar {
+    background-color: $color-white;
+  }
+}
+
+// === Secondary menu
+
+.menu-block-1 {
+  background: $color-black;
+  .navbar-nav {
+    @extend .container-max-width--padding;
+    float: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    & > li {
+      display: inline-block;
+      float: none;
+      & > a {
+        padding-top: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $color-white;
+        &:hover,
+        &:focus {
+          color: darken($color-white, 20%);
+          background: transparent;
+        }
+        // Default active state
+        &.active,
+        &.active-trail {
+          color: $color-brand-primary;
+          border-bottom-color: $color-brand-primary;
+        }
+      }
+    }
+  }
+  // Change secondary menu colors based on site section
+  .section-involved & {
+    .navbar-nav > li > a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-involved;
+        border-bottom-color: $color-brand-involved;
+      }
+    }
+  }
+  .section-are & {
+    .navbar-nav > li > a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-are;
+        border-bottom-color: $color-brand-are;
+      }
+    }
+  }
+  .section-do & {
+    .navbar-nav > li > a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-do;
+        border-bottom-color: $color-brand-do;
+      }
+    }
+  }
+  .section-blog & {
+    .navbar-nav > li > a {
+      &.active,
+      &.active-trail {
+        color: $color-brand-blog;
+        border-bottom-color: $color-brand-blog;
+      }
+    }
+  }
+}

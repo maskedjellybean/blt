@@ -1,0 +1,159 @@
+// Front page specific styling
+// ---------------------------
+
+.front {
+
+  // === Front page marquee
+  // @TODO Add this styling to /modules/_marquee and make more reusable
+
+  header.navbar {
+    position: absolute;
+    top: 0;
+    z-index: 40;
+    width: 100%;
+    .navbar-nav {
+      background-color: $color-black;
+    }
+    .navbar-nav > li > a {
+      @extend .link-color--white;
+      &:hover,
+      &:focus {
+        background-color: lighten($color-black, 15%);
+      }
+      &.active {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+  // Adjust for admin menu
+  &.admin-menu header.navbar {
+    top: $admin-menu-height;
+  }
+  .page-header {
+    display: none;
+  }
+  .pane-tao-marquee.panel-pane {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    .pane-title {
+      display: none;
+    }
+  }
+  // Panels IPE
+  &.logged-in .panels-ipe-placeholder {
+    margin-top: $header-height--desktop;
+  }
+  // Adjust admin messages
+  .admin-tabs-container {
+    position: relative;
+    z-index: 40;
+    .messages {
+      position: absolute;
+      top: $header-height--desktop;
+      width: 100%;
+    }
+  }
+
+  // Desktop
+
+  @include media(md) {
+    header.navbar {
+      .navbar-nav {
+        background-color: transparent;
+      }
+      .navbar-nav > li > a {
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // === Panel panes
+
+  .panel-pane {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-light-gray;
+  }
+  .pane-title {
+    margin-top: 0;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  // === What We Do pane
+
+  .pane-what-we-do-teaser-pane-teaser {
+    border-bottom: none;
+    .teaser-icon {
+      margin-bottom: 15px;
+      text-align: center;
+      a {
+        display: inline-block;
+        width: auto;
+        height: 30px;
+      }
+    }
+    .views-field-title {
+      text-align: center;
+    }
+    .views-field-body {
+      text-align: center;
+    }
+
+    // Desktop
+    @include media(md) {
+      .view-content .row {
+        margin-bottom: $spacing-lg;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // === Members banner/Get Involved pane
+
+  .pane-members-banner.panel-pane {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    .members-banner-background {
+      background-size: cover;
+    }
+    .col-md-4 {
+      position: relative;
+    }
+    h3 {
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+      text-align: center;
+      color: $color-white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 32px;
+    }
+
+    // Desktop
+    @include media(md) {
+      .col-md-4 {
+        min-height: 300px;
+      }
+      h3 {
+        margin-top: 33%; // @TODO need better way to verically center
+      }
+    }
+  }
+  .pane-get-involved.panel-pane {
+    .btn {
+      width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+

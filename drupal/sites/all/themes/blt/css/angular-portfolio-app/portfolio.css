@@ -1,0 +1,302 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* card flip effect tutorial: http://css3.bradshawenterprises.com/flip/ */
+
+/* aspect ratio for height using padding demo: http://dabblet.com/gist/2590942 */
+
+
+/* fonts */
+
+@font-face {
+  font-family: 'walkway-expand';
+  src: url('../fonts/walkway_expand_black-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/walkway_expand_black-webfont.woff') format('woff'),
+       url('../fonts/walkway_expand_black-webfont.ttf')  format('truetype'),
+       url('../fonts/walkway_expand_black-webfont.svg#webfont') format('svg');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, verdana, arial, sans-serif;
+  font-size: 15px;
+  background: #c9c9c9;
+  margin: 0;
+  -webkit-text-size-adjust: none;
+}
+
+a {
+  color: #0E7DAA;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0E7DAA;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 ,h2 ,h3 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  max-height: none !important;
+}
+
+p {
+  line-height: 1.6em;
+}
+
+/* Cards */
+
+.card-container {
+  position: relative;
+  float: left;  
+  margin: 0;
+  z-index: 0;
+  overflow: visible;
+}
+.card-container-inner {
+  position: relative;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+}
+.two-row .card-container {
+  width: 50%;
+  padding-top: 10px;
+}
+.two-row .card-container.left {
+  padding-right: 5px;
+}
+.two-row .card-container.right {
+  padding-left: 5px;
+}
+.three-row .card-container {
+  width: 31.5%;
+}
+.card-container.description-active {
+  z-index: 1;
+}
+.card-container.transforming {
+  z-index: 40;
+}
+
+.flip-card {
+  width: 100%;
+  height: auto;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;  
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;  
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+}
+.two-row .flip-card {
+  padding-bottom: 68.2%;
+}
+.three-row .flip-card {
+  padding-bottom: 125.3%;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;  
+}
+.face.back {
+  display: block;
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);  
+  box-sizing: border-box;
+  color: #666;
+}
+.piece-image {
+  width: 100%;
+}
+
+.no-images {
+  padding-bottom: 8.6%;
+  width: 55%;
+  float: left;
+}
+
+.less-button, .more-button {
+  margin-top: 20px;
+  cursor: pointer;
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;  
+  float: left;
+}
+.show-more {
+  cursor: pointer;
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;  
+  float: right;
+}
+.more-icon, .less-icon {
+  float: left;  
+  width: 29px;
+  height: 29px;
+  margin-right: 15px;    
+  background-image: url("../../images/angular-portfolio-app/moreV2.png");
+  background-repeat: no-repeat;
+  background-size: 299%;
+  text-indent: -500px;
+}
+.less-icon {
+  background-position: -58px 0;
+}
+.show-more:hover .more-icon {
+  background-position: -29px 0;
+}
+.more-text, .less-text {
+  display: inline-block;
+  margin-top: 5px;  
+  font-size: 1rem;
+}
+
+.flip-help {
+  opacity: 0;
+  -webkit-transition: opacity, .2s;
+  -moz-transition: opacity, .2s;
+  transition: opacity, .2s;  
+  position: absolute;  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  float: right;  
+  width: 100%;
+  z-index: 50;
+  pointer-events: none;
+  font-size: 0.8em;
+  text-align: center;
+  color: #999999;    
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.flip-help.hover {
+  opacity: 1;
+}
+.flip-help img {
+  position: absolute;
+  top: 36%;  
+  left: 36%;
+  opacity: 0.6;
+  width: 27%;
+}
+
+/* Description */
+
+.piece-date {
+  display: block;
+  margin-bottom: .5rem;
+}
+.piece-programs {
+  display: block;
+  font-style: italic;
+}
+.description {
+  box-sizing: border-box;  
+  position: relative;  
+  height: 100%;
+  padding: 20px;
+  background: white;
+  overflow-y: scroll;
+}
+.piece-title-company {
+  margin: 0 auto;
+  line-height: 1.7em;
+  text-align: left;
+  color: #0E7DAA;  
+}
+.piece-description-text {
+  margin-top: 1.5em;
+}
+.piece-description-text p {
+  margin: 0;
+}
+
+/* ACTIONS */
+
+.transform {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);  
+}
+
+img.hide {
+  display: none;
+}
+.hide {
+  display: none;
+}
+
+.fade {
+  opacity: .3;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.not-flippable {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+/* Bug fixes */
+
+/* hack to fix Opera displaying height 100% actually correct */
+
+x:-o-prefocus, .face {
+  height: 90%;
+  overflow: hidden;
+}
+
+/* Mobile/Flexslider */
+
+.flexslider {
+  margin: 0;
+  border: none;
+}
+.flexslider-container {
+  width: 100%;
+  margin: 20px auto 0 auto;
+}
+.flex-control-nav {
+  bottom: -30px;
+  z-index: 30;
+}
+.flex-control-paging li a {
+  width: 15px;
+  height: 15px;
+}
+.flex-direction-nav {
+  display: none;
+}
+.mobile-row .description {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-links {
+    display: none;
+  }
+}

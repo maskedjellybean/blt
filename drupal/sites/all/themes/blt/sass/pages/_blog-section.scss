@@ -1,0 +1,98 @@
+// Blog landing & blog nodes
+// ---------------------------
+
+// === Blog landing and Blog tags taxonomy listing
+
+.page-node-54 {
+  .radix-layouts-header {
+    margin-bottom: $spacing-lg;
+  }
+  .page-title {
+    display: none;
+  }
+}
+
+.view-blog-post.view-display-id-panel_pane_2,
+.view-blog-post.view-display-id-pane_tags {
+  .view-content {
+    @extend .clearfix;
+  }
+  .views-row {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-light-gray;
+  }
+  .views-field-field-tags {
+    margin-top: $spacing-md;
+    padding: 0;
+    @extend .font-size--small;
+    text-transform: initial;
+    font-style: italic;
+    a {
+      display: inline-block;
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// === Blog node
+
+.node-type-blog {
+  .page-header .page-title {
+    display: none;
+  }
+  .field-tags {
+    margin-top: $spacing-md;
+    padding: 0;
+    @extend .font-size--small;
+    text-transform: initial;
+    font-style: italic;
+    .tag-item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+// === Blog landing and blog node content
+
+.view-blog-post.view-display-id-panel_pane_2,
+.view-blog-post.view-display-id-pane_tags,
+.node-type-blog {
+  // Fields
+  .category,
+  .field-name-field-category {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .views-field-field-image img {
+    @include transition(opacity, .2s);
+    &:hover,
+    &:focus {
+      opacity: .8;
+    }
+  }
+  .views-field-title h3,
+  .page-title {
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  .date-small,
+  .field-name-field-date {
+    margin-bottom: 10px;
+    @extend .font-size--small;
+    color: $color-dark-gray;
+  }
+  .read-more {
+    display: block;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  .text-center {
+    text-align: left;
+  }
+}

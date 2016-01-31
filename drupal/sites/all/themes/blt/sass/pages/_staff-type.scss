@@ -1,0 +1,31 @@
+// Staff content type node
+// ---------------------------
+
+.node-type-staff {
+  .hero-text {
+    max-width: 790px;
+    margin: 0 auto;
+    .page-title {
+      margin-bottom: $spacing-md;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $color-light-gray;
+    }
+  }
+  .pane-node-content {
+    .pane-content {
+      max-width: 790px;
+      margin: 0 auto;
+    }
+    .field-label {
+      margin-bottom: 0;
+    }
+    .field {
+      margin-bottom: $spacing-md;
+    }
+    .field-name-field-position {
+      @extend label;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  }
+}

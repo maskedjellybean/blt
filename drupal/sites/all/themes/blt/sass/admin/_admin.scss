@@ -1,0 +1,36 @@
+// Admin related
+// ---------------------------
+
+// === Messages
+
+.messages {
+  @extend .clearfix;
+}
+
+// === Panels IPE
+
+.ctools-modal-dialog {
+  .panels-add-content-modal {
+    background-image: none;
+  }
+  .panels-section-column-categories {
+    background-color: #eee;
+  }
+  .panels-section-column {
+    img {
+      display: inline-block;
+    }
+    .content-type-button a {
+      margin-bottom: 5px;
+    }
+    .content-type-button div,
+    .content-type-button span {
+      position: inherit;
+      left: auto;
+      top: auto;
+      width: auto;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+}

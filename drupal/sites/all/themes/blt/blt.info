@@ -1,0 +1,52 @@
+name = BLT Portfolio
+description = Subtheme of the Bootstrap theme.
+core = 7.x
+base theme = bootstrap
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[footer_col_1]   = 'Footer Column 1'
+regions[footer_col_2]   = 'Footer Column 2'
+regions[footer_col_3]   = 'Footer Column 3'
+regions[footer_bottom]  = 'Footer Bottom'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+; stylesheets[all][] = css/styles.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+; Bootstrap
+scripts[] = 'js/libraries/bootstrap/affix.js'
+scripts[] = 'js/libraries/bootstrap/alert.js'
+scripts[] = 'js/libraries/bootstrap/button.js'
+scripts[] = 'js/libraries/bootstrap/carousel.js'
+scripts[] = 'js/libraries/bootstrap/collapse.js'
+scripts[] = 'js/libraries/bootstrap/dropdown.js'
+scripts[] = 'js/libraries/bootstrap/modal.js'
+scripts[] = 'js/libraries/bootstrap/tooltip.js'
+scripts[] = 'js/libraries/bootstrap/popover.js'
+scripts[] = 'js/libraries/bootstrap/scrollspy.js'
+scripts[] = 'js/libraries/bootstrap/tab.js'
+scripts[] = 'js/libraries/bootstrap/transition.js'
+
+; Custom JS scripts
+; scripts[] = 'js/script.js'
+
+; Disable BootstrapCDN so the compiled SCSS source files can be used.
+settings[bootstrap_cdn] = ''

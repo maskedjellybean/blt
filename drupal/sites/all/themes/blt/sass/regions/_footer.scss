@@ -1,0 +1,52 @@
+// Footer styling
+// ---------------------------
+
+footer.footer {
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  background-color: $color-super-light-gray;
+  // Social media links
+  .social-media-links {
+    @extend .clearfix;
+    margin-bottom: $spacing-md;
+    .social-icon {
+      display: block;
+      float: left;
+      width: 35px;
+      height: 35px;
+      margin-right: 12px;
+      @include transition(opacity, .3s);
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: .8;
+      }
+    }
+  }
+  .footer-top-row {
+    margin-bottom: 80px;
+  }
+  // Footer menu
+  .block-footer-menu {
+    ul.menu {
+      padding: 0;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin-right: 3px;
+      }
+      a {
+        margin-right: 3px;
+      }
+    }
+  }
+  .block-copyright {
+    text-align: center;
+    p {
+      margin-bottom: 5px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// Marquee (as found on front page)
+// ---------------------------
+
+.pane-tao-marquee {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  .pane-title {
+    display: none;
+  }
+}
+.tao-marquee {
+  position: relative;
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 5px solid $color-brand-primary;
+  .marquee-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: $color-white;
+  }
+  .marquee-text-container {
+    @extend .container-max-width--padding;
+    padding-bottom: $spacing-lg;
+  }
+  h1 {
+    margin-bottom: $spacing-lg;
+    font-weight: 500;
+    line-height: 1.4em;
+    color: $color-white;
+  }
+  .btn {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}

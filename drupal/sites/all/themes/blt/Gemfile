@@ -1,0 +1,15 @@
+# Gemfile
+source "https://rubygems.org"
+
+# Compass, SASS and Bootstrap SASS
+
+group :assets do
+  gem 'bootstrap-sass', '3.3.6'
+  gem 'sass-globbing', '1.1.0'
+  gem 'compass', '1.0.3'
+  gem 'sass', '3.4.18'
+  # The 6.1.2 update to autoprefixer-rails added a requirement for Ruby version 2.0.0.
+  # autoprefixer-rails is required by sass and bootstrap-sass.
+  # https://rubygems.org/gems/autoprefixer-rails/versions/6.1.2
+  gem 'autoprefixer-rails', '6.1.1'
+end

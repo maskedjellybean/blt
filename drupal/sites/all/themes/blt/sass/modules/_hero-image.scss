@@ -1,0 +1,30 @@
+ // Hero image, found at the top of Landing Page or Basic Page content.
+ // To use, add .hero-image class to panel pane node field.
+ // ---------------------------
+
+.hero-image {
+  max-height: 350px;
+  overflow: hidden;
+  border-bottom: 5px solid $color-brand-primary;
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  // Change color based on site section
+  .section-involved & {
+    border-bottom-color: $color-brand-involved;
+  }
+  .section-are & {
+    border-bottom-color: $color-brand-are;
+  }
+  .section-do & {
+    border-bottom-color: $color-brand-do;
+  }
+  .section-events & {
+    border-bottom-color: $color-brand-primary;
+  }
+  .section-blog & {
+    border-bottom-color: $color-brand-blog;
+  }
+}

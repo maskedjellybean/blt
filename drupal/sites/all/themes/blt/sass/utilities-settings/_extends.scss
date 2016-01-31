@@ -1,0 +1,42 @@
+// Useful classes to @extend in order to accomplish layout tasks
+// ---------------------------
+
+// === Bootstrap grid
+//
+// Apply to <div>
+
+// Give a <div> the width of Bootstrap .container without
+// giving it all the baggage that comes with extending .container
+
+.container-max-width {
+  width: 100%;
+  max-width: $container-lg;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  @include media(sm) {
+    max-width: $container-sm;
+  }
+  @include media(md) {
+    max-width: $container-md;
+  }
+  @include media(lg) {
+    max-width: $container-lg;
+  }
+}
+
+// Give <div> the width of Bootstrap .container-fluid with gutter padding
+.container-max-width--padding {
+  @extend .container-max-width;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+}
+
+// Reset Bootstrap .container to full-width
+.container-reset {
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}

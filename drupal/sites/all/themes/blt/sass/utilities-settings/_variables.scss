@@ -1,0 +1,36 @@
+// Custom variables for the techoregon theme
+// ---------------------------
+
+// === Colors
+
+// Basic colors
+$color-white: #fff;
+$color-black: #000;
+
+// Brand colors
+$color-brand-primary: $brand-primary; // Extend Bootstrap variable but give it a better name
+$color-brand-are: #D6DF23;
+$color-brand-do: #EC008B;
+$color-brand-involved: #36B44B;
+// Use brand-primary for events
+$color-brand-blog: #F05A28;
+
+// Grays
+$color-super-light-gray: #F7F7F7;
+$color-light-gray: #CCCCCC;
+$color-dark-gray: #666666;
+$color-very-dark-gray: #414042;
+
+// Typography colors
+$color-font-base: $text-color; // Extend Bootstrap variable
+
+// === Layout related
+
+$spacing-lg: 60px;
+$spacing-md: 30px;
+
+$header-height--desktop: 123px;
+$header-logo-width--desktop: 272px;
+$header-logo-width--mobile: 220px;
+
+$admin-menu-height: 29px;

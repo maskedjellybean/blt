@@ -1,0 +1,49 @@
+// Buttons and links
+// ---------------------------
+
+// === Links
+
+a {
+  @include transition(color, .2s);
+}
+
+// Dark gray links
+a.link-color--dark {
+  color: $color-font-base;
+  &:visited {
+    color: $color-font-base;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: lighten($color-font-base, 15%);
+  }
+}
+
+// White links
+a.link-color--white {
+  color: $color-white;
+  &:visited {
+    color: $color-white;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($color-white, 20%);
+  }
+}
+
+// === Bootstrap buttons
+
+.btn {
+  -webkit-font-smoothing: auto;
+  @include transition(background-color, .2s);
+}
+
+// Primary button
+.btn.btn-primary {
+  padding-left: 25px;
+  padding-right: 25px;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
