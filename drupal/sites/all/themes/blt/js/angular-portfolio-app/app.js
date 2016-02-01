@@ -55,11 +55,11 @@
       var curr_scroll_pos = $window.pageYOffset;
       if ($scope.desktopPortfolio.show_more_active) {
         var scroll_diff = Math.abs(curr_scroll_pos - $scope.desktopPortfolio.active_scroll_pos);
-        if (scroll_diff > 250) {
+        if (scroll_diff > 150) {
           $scope.desktopPortfolio.showMoreToggle($event, config.active_row, config.active_piece, true);
         }
       }
-    }, 50));
+    }, 30));
 
     function debounce(fn, delay) {
       var timer = null;
@@ -145,19 +145,17 @@
               // If piece is face down
               if (toggles[p].transform) {
                 // If back is active and neighbor img is visible, flip to front
-                if (!toggles[p].descriptionActive) {
-                  this.flipNeighborToFront(p, activePiece, toggles);
-                }
+                this.flipNeighborToFront(p, activePiece, toggles);
               }
               // If piece is face up
               else {
                 // If front is active and primary img is visible, flip to neighbor img
-                if (!toggles[p].frontSwapped) {
-                  this.flipFrontToNeighbor(p, activePiece, toggles);
-                }
+                this.flipFrontToNeighbor(p, activePiece, toggles);
               }
             }
+            // If active piece
             else {
+              // Flip to front
               if (toggles[activePiece].transform) {
                 this.transformingClassToggle(activePiece, toggles);
                 // toggles[activePiece]['backActive'] = false;
@@ -165,6 +163,7 @@
                   toggles[activePiece].descriptionActive = false;
                 }, 500);
               }
+              // Flip to back
               else {
                 this.transformingClassToggle(activePiece, toggles);
                 // toggles[activePiece]['backActive'] = true;
@@ -205,6 +204,7 @@
     this.flipNeighborToFront = function(piece, activePiece, toggles) {
       $timeout(function() {
         // Return Primary and hide neighboring images
+        toggles[piece].descriptionActive = false;
         toggles[piece].notFlippable = false;
         // toggles[p]['backActive'] = false;
         $scope.desktopPortfolio.transformingClassToggle(piece, toggles);
