@@ -87,10 +87,10 @@
       <div class="header-links">
         <!-- <a class="phone" href="tel:920-342-5990" title="Call me"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/phone.png'; ?>"><span>920.342.5990</span></a> -->
         <a class="email" href="mailto:benteegarden@gmail.com" title="Email me"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/email.png'; ?>"><span>benteegarden@gmail.com</span></a>
-        <!-- <a class="resume" href="docs/Teegarden-Ben_Resume.pdf" title="Download my resume" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/resume.png'; ?>"><span>resume.pdf</span></a> -->
-        <a class="linkedin" href="http://www.linkedin.com/pub/ben-teegarden/70/749/980" title="Visit my LinkedIn" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/linkedin.png'; ?>"><span>linkedin</span></a> 
+        <a class="resume" href="docs/Teegarden-Ben_Resume.pdf" title="See my resume" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/resume.png'; ?>"><span>resume.pdf</span></a>
+        <a class="linkedin" href="http://www.linkedin.com/pub/ben-teegarden/70/749/980" title="Visit my LinkedIn" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/linkedin.png'; ?>"><span>linkedin</span></a>
       </div>
-    </div>  
+    </div>
   </div>
 </header>
 
@@ -113,4 +113,4 @@
     </div>
   </footer>
 
-</div>  
+</div>
