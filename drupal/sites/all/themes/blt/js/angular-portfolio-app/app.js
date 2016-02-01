@@ -64,10 +64,10 @@
     // See More button functionality. Calls flipping function, calls function to fade non-origin rows
     this.showMoreToggle = function($event, originRow, originPiece, originCloseButton) {
       $event.stopPropagation();
-      console.log('show more');
+      // console.log('show more');
       // If no piece is open, open clicked piece
       if (!this.show_more_active) {
-
+        this.show_more_active = true;
         // Fade pieces
         this.preventFlipToggle(originRow, originPiece);
         // Flip self
@@ -76,23 +76,21 @@
         this.flipToggle($scope, originRow, false, originPiece);
 
         // Set global, scroll pos, show more active vars, fade pieces
-        this.active_scroll_pos = window.pageYOffset;
+        this.active_scroll_pos = $window.pageYOffset;
 
         $scope.rows[config.ppr_key][originRow]['toggles'][originPiece]['showMoreActive'] = true;
-        this.show_more_active = true;
         this.active_row = originRow;
         this.active_piece = originPiece;
       }
       // close open piece
       else {
         if (this.active_row != originRow || originCloseButton || (this.active_row === originRow && this.active_piece != originPiece)) {
-          console.log('close open piece');
+          this.show_more_active = false;
+          // console.log('close open piece');
           this.preventFlipToggle(this.active_row, this.active_piece);
           this.flipToggle($scope, this.active_row, false, this.active_piece);
           this.flipToggle($scope, this.active_row, true, this.active_piece);
           $scope.rows[config.ppr_key][this.active_row]['toggles'][this.active_piece]['showMoreActive'] = false;
-          this.show_more_active = false;
-          this.show_more_active = false;
           this.active_row = false;
           this.active_piece = false;
         }
@@ -120,34 +118,34 @@
     };
 
     // @todo this is not used for anything yet, needs work
-    this.activeRowToggle = function(repeatScope) {
-      var origin_row_status = $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'],
-          active_row_found = false;
-      if (this.show_more_active) {
-        for (var r = 0; r <= config.row_count_zero; r++) {
-          var curr_row = $scope.rows[config.ppr_key][r];
-          var curr_row_status = $scope.rows[config.ppr_key][r]['toggles']['active_row'];
-          if (curr_row_status) {
-            active_row_found = true;
-            if (r === repeatScope) {
-              $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = false;
-              break;
-            }
-          }
-        }
-        if (!active_row_found) {
-          $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = true;
-        }
-      }
-      else {
-        if (origin_row_status) {
-          $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = false;
-        }
-        else {
-          $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = true;
-        }
-      }
-    };
+    // this.activeRowToggle = function(repeatScope) {
+    //   var origin_row_status = $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'],
+    //       active_row_found = false;
+    //   if (this.show_more_active) {
+    //     for (var r = 0; r <= config.row_count_zero; r++) {
+    //       var curr_row = $scope.rows[config.ppr_key][r];
+    //       var curr_row_status = $scope.rows[config.ppr_key][r]['toggles']['active_row'];
+    //       if (curr_row_status) {
+    //         active_row_found = true;
+    //         if (r === repeatScope) {
+    //           $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = false;
+    //           break;
+    //         }
+    //       }
+    //     }
+    //     if (!active_row_found) {
+    //       $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = true;
+    //     }
+    //   }
+    //   else {
+    //     if (origin_row_status) {
+    //       $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = false;
+    //     }
+    //     else {
+    //       $scope.rows[config.ppr_key][repeatScope]['toggles']['active_row'] = true;
+    //     }
+    //   }
+    // };
 
     // Toggles CSS classes to flip pieces
     this.flipToggle = function($scope, repeatScope, targetOther, originPiece) {
