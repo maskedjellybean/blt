@@ -2,7 +2,7 @@
 
   // Global config settings @todo How should this actually be done in Angular?
   config = {
-    // Set number of pieces per row. Choose between 3 and 2.    
+    // Set number of pieces per row. Choose between 3 and 2.
     pieces_per_row: 2,
     target: 'http://benteegarden.com/api/portfolio/mk/mk.jsonp?callback=JSON_CALLBACK',
     theme_images_path: 'sites/all/themes/blt/images/angular-portfolio-app/',
@@ -50,59 +50,51 @@
     // Add theme_images_path to scope so it is accessible in template
     this.theme_images_path = config.theme_images_path;
 
-    // Bind showLess() to scroll
-    angular.element($window).bind("scroll", function() {
+    // Bind showMore() to scroll
+    angular.element($window).bind("scroll", function($event) {
       var curr_scroll_pos = $window.pageYOffset;
       if ($scope.desktopPortfolio.show_more_active) {
         var scroll_diff = Math.abs(curr_scroll_pos - $scope.desktopPortfolio.active_scroll_pos);
-        if (scroll_diff > 300) {
-          $scope.desktopPortfolio.showLess(config.active_row, config.active_piece);
+        if (scroll_diff > 250) {
+          $scope.desktopPortfolio.showMoreToggle($event, config.active_row, config.active_piece);
         }
       }
     });
 
     // See More button functionality. Calls flipping function, calls function to fade non-origin rows
-    this.showMore = function($event, repeatScope, originPiece) {
-      var piece = $scope.rows[config.ppr_key][repeatScope]['toggles'][originPiece];
-
-      // If clicked piece is currently allowed to be flipped, flip it and prevent flipping others
-      if (!$scope.rows[config.ppr_key][repeatScope]['toggles'][originPiece]['notFlippable']) {
-        // Stop this.showLess() from being called by parent ng-click()
-        $event.stopPropagation();
+    this.showMoreToggle = function($event, originRow, originPiece, originCloseButton) {
+      $event.stopPropagation();
+      console.log('show more');
+      // If no piece is open, open clicked piece
+      if (!this.show_more_active) {
 
         // Fade pieces
-        this.preventFlipToggle(repeatScope, originPiece);
+        this.preventFlipToggle(originRow, originPiece);
         // Flip self
-        this.flipToggle($scope, repeatScope, true, originPiece);
+        this.flipToggle($scope, originRow, true, originPiece);
         // Flip neighbors
-        this.flipToggle($scope, repeatScope, false, originPiece);
+        this.flipToggle($scope, originRow, false, originPiece);
 
-        // Set global show more active vars, fade pieces
+        // Set global, scroll pos, show more active vars, fade pieces
         this.active_scroll_pos = window.pageYOffset;
-        if (this.show_more_active) {
-          this.show_more_active = false;
-          this.active_row = false;
-          this.active_piece = false;
-          $scope.rows[config.ppr_key][repeatScope]['toggles'][originPiece]['showMoreActive'] = false;
-        }
-        else {
-          this.show_more_active = true;
-          this.active_row = repeatScope;
-          this.active_piece = originPiece;
-          $scope.rows[config.ppr_key][repeatScope]['toggles'][originPiece]['showMoreActive'] = true;
-        }
-      }
-    };
 
-    // Closes active piece, unfades non-active pieces
-    this.showLess = function(originRow, originPiece) {
-      if (this.show_more_active) {
-        if (this.active_row != originRow || (this.active_row == originRow && this.active_piece != originPiece)) {
+        $scope.rows[config.ppr_key][originRow]['toggles'][originPiece]['showMoreActive'] = true;
+        this.show_more_active = true;
+        this.active_row = originRow;
+        this.active_piece = originPiece;
+      }
+      // close open piece
+      else {
+        if (this.active_row != originRow || originCloseButton || (this.active_row === originRow && this.active_piece != originPiece)) {
+          console.log('close open piece');
           this.preventFlipToggle(this.active_row, this.active_piece);
           this.flipToggle($scope, this.active_row, false, this.active_piece);
           this.flipToggle($scope, this.active_row, true, this.active_piece);
-          this.show_more_active = false;
           $scope.rows[config.ppr_key][this.active_row]['toggles'][this.active_piece]['showMoreActive'] = false;
+          this.show_more_active = false;
+          this.show_more_active = false;
+          this.active_row = false;
+          this.active_piece = false;
         }
       }
     };

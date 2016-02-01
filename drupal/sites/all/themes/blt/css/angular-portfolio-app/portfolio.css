@@ -109,6 +109,15 @@ p {
 .three-row .flip-card {
   padding-bottom: 125.3%;
 }
+.flip-card.transform {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  cursor: default;
+}
+.flip-card.transform.not-flippable {
+  cursor: pointer;
+}
 
 .face {
   position: absolute;
@@ -135,6 +144,8 @@ p {
   width: 55%;
   float: left;
 }
+
+/* Deprecated close/open buttons @todo delete soon */
 
 .less-button, .more-button {
   margin-top: 20px;
@@ -172,6 +183,52 @@ p {
   margin-top: 5px;
   font-size: 1rem;
 }
+
+/* New close button */
+
+.close-button {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.close-button-inner {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+  width: 100%;
+  height: 100%;
+}
+.close-button:hover .close-button-inner {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.close-button .face {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../images/angular-portfolio-app/close-icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.close-button .front {
+  background-color: #A0A0A0;
+}
+.close-button .back {
+  background-color: #D65F44;
+}
+
+/* Info icon hover */
 
 .flip-help {
   opacity: 0;
@@ -236,12 +293,6 @@ p {
 
 /* ACTIONS */
 
-.transform {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
 img.hide {
   display: none;
 }
@@ -256,8 +307,6 @@ img.hide {
 }
 
 .not-flippable {
-  pointer-events: none;
-  cursor: pointer;
 }
 
 /* Bug fixes */
