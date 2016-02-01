@@ -128,10 +128,9 @@ p {
   backface-visibility: hidden;
 }
 .face.back {
-  display: block;
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translatez(1px);
   box-sizing: border-box;
   color: #666;
 }
