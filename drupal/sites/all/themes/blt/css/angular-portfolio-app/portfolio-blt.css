@@ -132,6 +132,9 @@ body {
 .footer.visible {
   opacity: 1;
 }
+.footer-container {
+  margin: 0 auto;
+}
 .footer-info {
   margin-top: 40px;
   margin-bottom: 30px;

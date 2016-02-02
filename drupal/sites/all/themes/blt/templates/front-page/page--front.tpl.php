@@ -89,6 +89,7 @@
         <a class="email" href="mailto:benteegarden@gmail.com" title="Email me"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/email.png'; ?>"><span>benteegarden@gmail.com</span></a>
         <a class="resume" href="docs/Teegarden-Ben_Resume.pdf" title="See my resume" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/resume.png'; ?>"><span>resume.pdf</span></a>
         <a class="linkedin" href="http://www.linkedin.com/pub/ben-teegarden/70/749/980" title="Visit my LinkedIn" target="_blank"><img src="<?php print path_to_theme() . '/images/angular-portfolio-app/linkedin.png'; ?>"><span>linkedin</span></a>
+        <a class="github" href="https://github.com/maskedjellybean" title="Visit my GitHub" target="_blank"><span>github</span></a>
       </div>
     </div>
   </div>
