@@ -130,9 +130,13 @@ p {
 .face.back {
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg) translatez(1px);
+  transform: rotateY(180deg);
   box-sizing: border-box;
   color: #666;
+}
+/* Fix for Firefox flickering bug. Only add while transform is happening or text will be blurry */
+.transforming .face.back {
+  transform: rotateY(180deg) translatez(1px);
 }
 .piece-image {
   width: 100%;
