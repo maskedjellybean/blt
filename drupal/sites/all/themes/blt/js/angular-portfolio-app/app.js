@@ -57,7 +57,7 @@
       var curr_scroll_pos = $window.pageYOffset;
       if ($scope.desktopPortfolio.show_more_active) {
         var scroll_diff = Math.abs(curr_scroll_pos - $scope.desktopPortfolio.active_scroll_pos);
-        if (scroll_diff > 150) {
+        if (scroll_diff > 250) {
           $scope.desktopPortfolio.showMoreToggle($event, config.active_row, config.active_piece, true);
         }
       }
