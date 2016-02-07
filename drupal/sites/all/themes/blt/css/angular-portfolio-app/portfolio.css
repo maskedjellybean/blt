@@ -96,9 +96,9 @@ p {
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -moz-transition: all .5s linear;
-  -webkit-transition: all .5s linear;
-  transition: all .5s linear;
+  -moz-transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
   cursor: pointer;
   border: none;
   z-index: 10;
@@ -153,16 +153,16 @@ p {
 .less-button, .more-button {
   margin-top: 20px;
   cursor: pointer;
-  -moz-transition: all .5s linear;
-  -webkit-transition: all .5s linear;
-  transition: all .5s linear;
+  -moz-transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
   float: left;
 }
 .show-more {
   cursor: pointer;
-  -moz-transition: all .5s linear;
-  -webkit-transition: all .5s linear;
-  transition: all .5s linear;
+  -moz-transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
   float: right;
 }
 .more-icon, .less-icon {

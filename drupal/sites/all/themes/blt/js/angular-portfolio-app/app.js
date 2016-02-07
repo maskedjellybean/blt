@@ -47,6 +47,8 @@
     this.active_row = false;
     this.active_piece = false;
     this.active_scroll_pos = 0;
+    // Currently transforming pieces. Empty when none are transforming.
+    this.transforming = {};
     // Add theme_images_path to scope so it is accessible in template
     this.theme_images_path = config.theme_images_path;
 
@@ -72,34 +74,44 @@
       };
     }
 
+    function isObjEmpty(obj) {
+      for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
     // See More button functionality. Calls flipping function, calls function to fade non-origin rows
     this.showMoreToggle = function($event, originRow, originPiece, originCloseButton) {
       $event.stopPropagation();
-      // console.log('show more');
-      // If no piece is open, open clicked piece
-      if (!this.show_more_active) {
-        this.show_more_active = true;
-        $scope.rows[config.ppr_key][originRow]['toggles'][originPiece].showMoreActive = true;
-        this.active_row = originRow;
-        this.active_piece = originPiece;
+      // If no pieces are currently transforming
+      if (isObjEmpty(this.transforming)) {
+        // If no piece is open, open clicked piece
+        if (!this.show_more_active) {
+          this.show_more_active = true;
+          $scope.rows[config.ppr_key][originRow]['toggles'][originPiece].showMoreActive = true;
+          this.active_row = originRow;
+          this.active_piece = originPiece;
 
-        // Flip cards
-        this.flipToggle(this.active_row, this.active_piece);
-
-        // Set global, scroll pos, show more active vars, fade pieces
-        this.active_scroll_pos = $window.pageYOffset;
-
-      }
-      // close open piece
-      else {
-        if (this.active_row != originRow || originCloseButton || (this.active_row === originRow && this.active_piece != originPiece)) {
-
+          // Flip cards
           this.flipToggle(this.active_row, this.active_piece);
 
-          this.show_more_active = false;
-          $scope.rows[config.ppr_key][this.active_row]['toggles'][this.active_piece].showMoreActive = false;
-          this.active_row = false;
-          this.active_piece = false;
+          // Set global, scroll pos, show more active vars, fade pieces
+          this.active_scroll_pos = $window.pageYOffset;
+        }
+        // close open piece
+        else {
+          if (this.active_row != originRow || originCloseButton || (this.active_row === originRow && this.active_piece != originPiece)) {
+
+            this.flipToggle(this.active_row, this.active_piece);
+
+            this.show_more_active = false;
+            $scope.rows[config.ppr_key][this.active_row]['toggles'][this.active_piece].showMoreActive = false;
+            this.active_row = false;
+            this.active_piece = false;
+          }
         }
       }
     };
@@ -138,34 +150,35 @@
     this.flipToggle = function(activeRow, activePiece) {
       for (var r = 0; r <= config.row_count_zero; r++) {
         var toggles = $scope.rows[config.ppr_key][r]['toggles'];
-        // Only affect other pieces in the row
+        // Only affect pieces in the active row
         if (r === activeRow) {
           for (var p = 0; p <= config.pieces_per_row_zero; p++) {
+            // If not the active piece
             if (p !== activePiece) {
               // If piece is face down
               if (toggles[p].transform) {
                 // If back is active and neighbor img is visible, flip to front
-                this.flipNeighborToFront(p, activePiece, toggles);
+                this.flipNeighborToFront(activeRow, activePiece, p, toggles);
               }
               // If piece is face up
               else {
                 // If front is active and primary img is visible, flip to neighbor img
-                this.flipFrontToNeighbor(p, activePiece, toggles);
+                this.flipFrontToNeighbor(activeRow, activePiece, p, toggles);
               }
             }
             // If active piece
             else {
               // Flip to front
               if (toggles[activePiece].transform) {
-                this.transformingClassToggle(activePiece, toggles);
+                this.transformingClassToggle(activeRow, activePiece, toggles);
                 // toggles[activePiece]['backActive'] = false;
                 $timeout(function() {
                   toggles[activePiece].descriptionActive = false;
-                }, 500);
+                }, 400);
               }
               // Flip to back
               else {
-                this.transformingClassToggle(activePiece, toggles);
+                this.transformingClassToggle(activeRow, activePiece, toggles);
                 // toggles[activePiece]['backActive'] = true;
                 toggles[activePiece].descriptionActive = true;
               }
@@ -173,7 +186,7 @@
           }
         }
         else {
-          // Fade pieces
+          // If not in the active row, fade pieces
           for (var p = 0; p <= config.pieces_per_row_zero; p++) {
             if (!toggles[p].notFlippable) {
               toggles[p].notFlippable = true;
@@ -188,7 +201,7 @@
       }
     };
 
-    this.flipFrontToNeighbor = function(piece, activePiece, toggles) {
+    this.flipFrontToNeighbor = function(activeRow, activePiece, piece, toggles) {
       $timeout(function() {
         // Show neighbor image on back face
         toggles[piece]['hideBackNbrImg' + '_' + activePiece.toString()] = false;
@@ -197,26 +210,28 @@
         toggles[piece].descriptionActive = false;
         toggles[piece].notFlippable = true;
         // Flip
-        $scope.desktopPortfolio.transformingClassToggle(piece, toggles);
-      }, 550);
+        $scope.desktopPortfolio.transformingClassToggle(activeRow, piece, toggles);
+      }, 450);
     };
 
-    this.flipNeighborToFront = function(piece, activePiece, toggles) {
+    this.flipNeighborToFront = function(activeRow, activePiece, piece, toggles) {
       $timeout(function() {
         // Return Primary and hide neighboring images
         toggles[piece].descriptionActive = false;
         toggles[piece].notFlippable = false;
         // toggles[p]['backActive'] = false;
-        $scope.desktopPortfolio.transformingClassToggle(piece, toggles);
+        $scope.desktopPortfolio.transformingClassToggle(activeRow, piece, toggles);
         $timeout(function() {
           // Hide neighbor image after flip
           toggles[piece]['hideBackNbrImg' + '_' + activePiece.toString()] = true;
-        }, 500);
-      }, 550);
+        }, 400);
+      }, 450);
     };
 
     // Add and remove class during flipping animation
-    this.transformingClassToggle = function(piece, toggles) {
+    this.transformingClassToggle = function(activeRow, piece, toggles) {
+      var trans_key = activeRow.toString() + '_' + piece.toString();
+      this.transforming[trans_key] = true;
       toggles[piece].transforming = true;
       // Hide flip help
       toggles[piece].frontHover = false;
@@ -228,6 +243,10 @@
       }
       $timeout(function() {
         toggles[piece].transforming = false;
+      }, 400);
+      // Wait a bit after transform is complete to allow pieces to be transformed again.
+      $timeout(function() {
+        delete $scope.desktopPortfolio.transforming[trans_key];
       }, 500);
     };
   }])
