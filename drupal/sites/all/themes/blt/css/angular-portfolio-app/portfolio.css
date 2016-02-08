@@ -142,12 +142,6 @@ p {
   width: 100%;
 }
 
-.no-images {
-  padding-bottom: 8.6%;
-  width: 55%;
-  float: left;
-}
-
 /* Deprecated close/open buttons @todo delete soon */
 
 .less-button, .more-button {
