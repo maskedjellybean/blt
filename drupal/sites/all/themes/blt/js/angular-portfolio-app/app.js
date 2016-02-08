@@ -20,8 +20,10 @@
   // Controllers
 
   // Parent Controller
+  // Set on <body> and contains all other controllers
   angular.module('portfolio', ['angular-flexslider'])
   .controller('PortfolioController', ['$scope', '$window', 'rowsFactory', function ($scope, $window, rowsFactory) {
+    $scope.overflow_hidden = false;
 
     // Call factory, returns obj of pieces divided into rows
     if (!$scope.rows) {
@@ -233,20 +235,21 @@
       var trans_key = activeRow.toString() + '_' + piece.toString();
       this.transforming[trans_key] = true;
       toggles[piece].transforming = true;
+      $scope.$parent.overflow_hidden = true;
       // Hide flip help
       toggles[piece].frontHover = false;
-      if (toggles[piece].transform) {
-        toggles[piece].transform = false;
-      }
-      else {
-        toggles[piece].transform = true;
-      }
+      toggles[piece].transform = toggles[piece].transform ? false : true;
+
       $timeout(function() {
         toggles[piece].transforming = false;
       }, 400);
       // Wait a bit after transform is complete to allow pieces to be transformed again.
       $timeout(function() {
         delete $scope.desktopPortfolio.transforming[trans_key];
+        // Return overflow-y to <body>. Fixes firefox bug where scrollbars appear for a split second.
+        if (isObjEmpty($scope.desktopPortfolio.transforming)) {
+          $scope.$parent.overflow_hidden = false;
+        }
       }, 500);
     };
   }])

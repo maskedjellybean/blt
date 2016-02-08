@@ -83,9 +83,9 @@
 
   <!-- Desktop controller/view -->
 
-	<div ng-controller="PortfolioDesktopController as desktopPortfolio" ng-show="window_width >= 768;">
+	<div class="desktop-controller" ng-controller="PortfolioDesktopController as desktopPortfolio" ng-show="window_width >= 768;">
     <div class="portfolio-row two-row clearfix" ng-repeat="row in rows.ppr_2" ng-class="{'active-row':row.toggles.active_row}">
-      <ng-include 
+      <ng-include
         src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/two-row.html'?>'">
       </ng-include>
     </div>
@@ -93,11 +93,11 @@
 
   <!-- Mobile controller/view -->
 
-  <div ng-controller="PortfolioMobileController as mobilePortfolio" ng-show="window_width < 768;">
+  <div class="mobile-controller" ng-controller="PortfolioMobileController as mobilePortfolio" ng-show="window_width < 768;">
     <div class="portfolio-row mobile-row clearfix" ng-repeat="row in rows.ppr_1">
-      <ng-include 
+      <ng-include
         src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/mobile-row.html'?>'">
       </ng-include>
     </div>
-  </div>    
+  </div>
 </article>

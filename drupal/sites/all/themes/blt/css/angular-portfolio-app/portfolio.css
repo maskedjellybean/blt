@@ -27,6 +27,9 @@ body {
   margin: 0;
   -webkit-text-size-adjust: none;
 }
+body.overflow-hidden {
+  overflow-x: hidden;
+}
 
 a {
   color: #0E7DAA;
@@ -66,9 +69,9 @@ p {
 }
 .card-container-inner {
   position: relative;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  perspective: 1000px;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  perspective: 1200px;
 }
 .two-row .card-container {
   width: 50%;

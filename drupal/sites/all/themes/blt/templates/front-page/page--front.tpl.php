@@ -95,23 +95,21 @@
   </div>
 </header>
 
-<div class="portfolio-wrapper" ng-controller="PortfolioController as portfolio">
 
   <!-- Main content -->
 
   <div class="main-content-container container-fluid">
     <div class="loading" ng-hide="rows && window_width"></div>
-    <section class="main-content" ng-class="{visible : rows}">
+    <section class="main-content" ng-class="{'visible':rows}">
       <?php print render($page['content']); ?>
     </section>
   </div>
 
   <!-- Footer -->
 
-  <footer class="footer" ng-class="{visible : rows}">
+  <footer class="footer" ng-class="{'visible':rows}">
     <div class="footer-container container-fluid">
       <p class="footer-info">This site was built using AngularJS with a Drupal back-end.</p>
     </div>
   </footer>
 
-</div>

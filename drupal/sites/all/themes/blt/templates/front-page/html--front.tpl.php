@@ -55,38 +55,38 @@
  */
 ?><!DOCTYPE html>
 <html ng-app="portfolio" <?php print $html_attributes;?><?php print $rdf_namespaces;?>>
-<head>
-  <link rel="profile" href="<?php print $grddl_profile; ?>" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="profile" href="<?php print $grddl_profile; ?>" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-  <!-- HTML5 element support for IE6-8 -->
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <?php print $scripts; ?>
-</head>
-<body<?php print $body_attributes; ?>>
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $page_bottom; ?>
+    <?php print $head; ?>
+    <title><?php print $head_title; ?></title>
+    <?php print $styles; ?>
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <?php print $scripts; ?>
+  </head>
+  <body<?php print $body_attributes; ?> ng-controller="PortfolioController as portfolio" ng-class="{'overflow-hidden':overflow_hidden}">
+    <?php print $page_top; ?>
+    <?php print $page; ?>
+    <?php print $page_bottom; ?>
 
-  <!-- Angular Portfolio App JS -->
+    <!-- Angular Portfolio App JS -->
 
-  <!-- Libraries/Frameworks -->
-  <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/jquery.flexslider-min.js"></script>  
-  <script type="text/javascript" src="sites/all/themes/blt/js/libraries/angular/angular.min.js"></script>
-  <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/angular-flexslider.js"></script>
+    <!-- Libraries/Frameworks -->
+    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/angular/angular.min.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/angular-flexslider.js"></script>
 
-  <!-- Custom App -->
-  <!-- <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/modules-bootstrap.min.js"></script> -->
-<!--     // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/app.min.js"></script>
-  // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/factories.min.js"></script> -->
+    <!-- Custom App -->
+    <!-- <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/modules-bootstrap.min.js"></script> -->
+  <!--     // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/app.min.js"></script>
+    // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/factories.min.js"></script> -->
 
-  <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/app.js"></script>
-  <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/factories.js"></script>
-</body>
+    <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/app.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/factories.js"></script>
+  </body>
 </html>
