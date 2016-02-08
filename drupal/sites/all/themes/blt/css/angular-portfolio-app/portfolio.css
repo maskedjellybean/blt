@@ -110,9 +110,6 @@ p {
   padding-bottom: 125.3%;
 }
 .flip-card.transform {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  transform: rotateY(180deg);
   cursor: default;
 }
 .flip-card.transform.not-flippable {
@@ -126,6 +123,9 @@ p {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  -moz-transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
 }
 .face.back {
   -moz-transform: rotateY(180deg);
@@ -140,6 +140,16 @@ p {
 }
 .piece-image {
   width: 100%;
+}
+.flip-card.transform .face.front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.flip-card.transform .face.back {
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
 
 /* Deprecated close/open buttons @todo delete soon */
