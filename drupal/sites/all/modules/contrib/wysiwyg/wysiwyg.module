@@ -220,9 +220,8 @@ function wysiwyg_pre_render_text_format($element) {
     }
   }
   // Use a hidden element for a single text format.
-  if (!$format_field['format']['#access'] || (isset($format_field['#access']) && !$format_field['#access'])) {
-    $format_id = $format_field['format']['#value'];
-    $element['wysiwyg'] = array(
+  if (!$format_field['format']['#access']) {
+    $format_field['wysiwyg'] = array(
       '#type' => 'hidden',
       '#name' => $format_field['format']['#name'],
       '#value' => $format_id,
@@ -231,7 +230,7 @@ function wysiwyg_pre_render_text_format($element) {
         'class' => array('wysiwyg'),
       ),
     );
-    $element['wysiwyg']['#attached']['js'][] = array(
+    $format_field['wysiwyg']['#attached']['js'][] = array(
       'data' => array(
         'wysiwyg' => array(
           'triggers' => array(
@@ -349,7 +348,7 @@ function wysiwyg_load_editor($profile) {
             drupal_add_js($init, array('type' => 'inline') + $default_library_options);
           }
           else {
-            drupal_add_js($uri, $default_library_options);
+            drupal_add_js(file_create_url($uri), $default_library_options);
           }
         }
       }

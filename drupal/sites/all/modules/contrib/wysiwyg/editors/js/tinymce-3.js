@@ -56,12 +56,12 @@ Drupal.wysiwyg.editor.attach.tinymce = function(context, params, settings) {
   tinymce.dom.Event.domLoaded = true;
   // Make toolbar buttons wrappable (required for IE).
   ed.onPostRender.add(function (ed) {
-    // var $toolbar = $('<div class="wysiwygToolbar"></div>');
-    // $('#' + ed.editorContainer + ' table.mceToolbar > tbody > tr > td').each(function () {
-    //   $('<div></div>').addClass(this.className).append($(this).children()).appendTo($toolbar);
-    // });
-    // $('#' + ed.editorContainer + ' table.mceLayout td.mceToolbar').append($toolbar);
-    // $('#' + ed.editorContainer + ' table.mceToolbar').remove();
+    var $toolbar = $('<div class="wysiwygToolbar"></div>');
+    $('#' + ed.editorContainer + ' table.mceToolbar > tbody > tr > td').each(function () {
+      $('<div></div>').addClass(this.className).append($(this).children()).appendTo($toolbar);
+    });
+    $('#' + ed.editorContainer + ' table.mceLayout td.mceToolbar').append($toolbar);
+    $('#' + ed.editorContainer + ' table.mceToolbar').remove();
   });
 
   // Remove TinyMCE's internal mceItem class, which was incorrectly added to
