@@ -1,7 +1,7 @@
 <!-- left piece -->
 
 <div class="card-container left" ng-class="{'transforming':row.toggles.0.transforming, 'description-active':row.toggles.0.descriptionActive}">
-  <div class="card-container-inner" ng-click="desktopPortfolio.showMoreToggle($event, $index, 0)">
+  <div class="card-container-inner" ng-click="showMoreToggle($event, $index, 0)">
     <div class="flip-card" ng-class="{'transform':row.toggles.0.transform, 'fade':row.toggles.0.fade, 'not-flippable':row.toggles.0.notFlippable}">
 
       <div class="front face">
@@ -10,7 +10,7 @@
 
       <div class="back face">
         <div class="description" ng-show="row.toggles.0.descriptionActive">
-          <div class="close-button" ng-click="desktopPortfolio.showMoreToggle($event, $index, 0, true)">
+          <div class="close-button" ng-click="showMoreToggle($event, $index, 0, true)">
             <div class="close-button-inner">
               <div class="front face"></div>
               <div class="back face"></div>
@@ -28,7 +28,7 @@
 
     </div>
     <div class="flip-help" ng-class="{'hover':row.toggles.0.frontHover}">
-      <img src="{{desktopPortfolio.theme_images_path + 'info.png'}}" />
+      <img src="{{theme_images_path + 'info.png'}}" />
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
 <!-- right piece -->
 
 <div class="card-container right" ng-class="{'transforming':row.toggles.1.transforming, 'description-active':row.toggles.1.descriptionActive}">
-  <div class="card-container-inner" ng-click="desktopPortfolio.showMoreToggle($event, $index, 1)">
+  <div class="card-container-inner" ng-click="showMoreToggle($event, $index, 1)">
     <div class="flip-card" ng-class="{'transform':row.toggles.1.transform, 'fade':row.toggles.1.fade, 'not-flippable':row.toggles.1.notFlippable}">
 
       <div class="front face">
@@ -45,7 +45,7 @@
 
       <div class="back face">
         <div class="description" ng-show="row.toggles.1.descriptionActive">
-          <div class="close-button" ng-click="desktopPortfolio.showMoreToggle($event, $index, 1, true)">
+          <div class="close-button" ng-click="showMoreToggle($event, $index, 1, true)">
             <div class="close-button-inner">
               <div class="front face"></div>
               <div class="back face"></div>
@@ -63,7 +63,7 @@
 
     </div>
     <div class="flip-help" ng-class="{'hover':row.toggles.1.frontHover}">
-      <img src="{{desktopPortfolio.theme_images_path + 'info.png'}}" />
+      <img src="{{theme_images_path + 'info.png'}}" />
     </div>
   </div>
 </div>
