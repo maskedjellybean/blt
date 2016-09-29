@@ -93,7 +93,7 @@
 
   <!-- Mobile controller/view -->
 
-  <div class="mobile-controller" ng-controller="PortfolioMobileController as mobilePortfolio" ng-show="window_width < 768;">
+  <div class="mobile-controller" ng-controller="mobileController" ng-show="window_width < 768;">
     <div class="portfolio-row mobile-row clearfix" ng-repeat="row in rows.ppr_1">
       <ng-include
         src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/mobile-row.html'?>'">

@@ -262,7 +262,6 @@
       this.transform = false;
       this.transforming = false;
       this.frontHover = false;
-      // this.backActive = false; @todo probably not needed
       this.descriptionActive = false;
       this.noFlipHelp = false;
       this.notFlippable = false;

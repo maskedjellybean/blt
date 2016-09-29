@@ -19,8 +19,10 @@
 
   // Controllers
 
-  // Parent Controller
-  // Set on <body> and contains all other controllers
+  /**
+   * Parent Controller.
+   * Set on <body> and contains all other controllers.
+   */
   angular.module('portfolio', ['angular-flexslider'])
   .controller('PortfolioController', ['$scope', '$window', 'rowsFactory', function ($scope, $window, rowsFactory) {
     $scope.overflow_hidden = false;
@@ -41,7 +43,10 @@
     });
   }])
 
-  // Desktop Controller
+  /**
+   * Desktop Controller.
+   * Used for large browser size.
+   */
   .controller('desktopController', ['$scope', '$timeout', '$window', function ($scope, $timeout, $window) {
     // Set to true whenever any piece is expanded (show more is clicked)
     var show_more_active = false;
@@ -54,8 +59,10 @@
     // Add theme_images_path to scope so it is accessible in View.
     $scope.theme_images_path = config.theme_images_path;
 
-    // See More button functionality. Calls flipping function, calls function to fade non-origin rows
-    // Public function available in View.
+    /**
+     * See more functionality. Calls flipping function, calls function to fade rows.
+     * Public Scope function available in View.
+     */
     $scope.showMoreToggle = function($event, originRow, originPiece, originCloseButton) {
       $event.stopPropagation();
       // If no pieces are currently transforming
@@ -88,7 +95,10 @@
       }
     };
 
-    // Bind showMoreToggle() to scroll
+    /**
+     * Bind showMoreToggle() to scroll.
+     * Private function.
+     */
     (function scollToggleBind() {
       angular.element($window).bind("scroll", debounce(function($event) {
         var curr_scroll_pos = $window.pageYOffset;
@@ -101,6 +111,10 @@
       }, 30));
     })();
 
+    /**
+     * Creates debounce functionality. Used when scrolling.
+     * Private function.
+     */
     function debounce(fn, delay) {
       var timer = null;
       return function () {
@@ -112,6 +126,10 @@
       };
     }
 
+    /**
+     * Checks if obj is empty.
+     * Private function.
+     */
     function isObjEmpty(obj) {
       for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) {
@@ -121,7 +139,10 @@
       return true;
     }
 
-    // Toggles CSS classes to flip pieces
+    /**
+     * Toggles CSS classes to flip pieces.
+     * Private function.
+     */
     function flipToggle(activeRow, activePiece) {
       for (var r = 0; r <= config.row_count_zero; r++) {
         var toggles = $scope.rows[config.ppr_key][r]['toggles'];
@@ -146,7 +167,6 @@
               // Flip to front
               if (toggles[activePiece].transform) {
                 transformingClassToggle(activeRow, activePiece, toggles);
-                // toggles[activePiece]['backActive'] = false;
                 $timeout(function() {
                   toggles[activePiece].descriptionActive = false;
                 }, 400);
@@ -154,7 +174,6 @@
               // Flip to back
               else {
                 transformingClassToggle(activeRow, activePiece, toggles);
-                // toggles[activePiece]['backActive'] = true;
                 toggles[activePiece].descriptionActive = true;
               }
             }
@@ -176,11 +195,14 @@
       }
     }
 
+    /**
+     * Flips piece from front/primary image to back/neighbor image.
+     * Private function.
+     */
     function flipFrontToNeighbor(activeRow, activePiece, piece, toggles) {
       $timeout(function() {
         // Show neighbor image on back face
         toggles[piece]['hideBackNbrImg' + '_' + activePiece.toString()] = false;
-        // toggles[p]['backActive'] = true;
         // Hide description
         toggles[piece].descriptionActive = false;
         toggles[piece].notFlippable = true;
@@ -189,12 +211,15 @@
       }, 450);
     }
 
+    /**
+     * Flips piece from back/neighbor image to front/primary image.
+     * Private function.
+     */
     function flipNeighborToFront(activeRow, activePiece, piece, toggles) {
       $timeout(function() {
         // Return Primary and hide neighboring images
         toggles[piece].descriptionActive = false;
         toggles[piece].notFlippable = false;
-        // toggles[p]['backActive'] = false;
         transformingClassToggle(activeRow, piece, toggles);
         $timeout(function() {
           // Hide neighbor image after flip
@@ -203,7 +228,10 @@
       }, 450);
     }
 
-    // Add and remove class during flipping animation
+    /**
+     * Adds and removes CSS class during flipping animation.
+     * Private function.
+     */
     function transformingClassToggle(activeRow, piece, toggles) {
       var trans_key = activeRow.toString() + '_' + piece.toString();
       transforming[trans_key] = true;
@@ -227,8 +255,10 @@
     }
   }])
 
-  // Mobile controller
-  .controller('PortfolioMobileController', ['$scope', '$window', function ($scope, $window) {
+  /**
+   * Mobile Controller.
+   */
+  .controller('mobileController', ['$scope', '$window', function ($scope, $window) {
 
   }]);
 })();
