@@ -56,6 +56,7 @@
     var active_row = false;
     var active_piece = false;
     var active_scroll_pos = 0;
+    var scroll_timeout = false;
     // Currently transforming pieces. Empty when none are transforming.
     var transforming = {};
     // Add theme_images_path to scope so it is accessible in View.
@@ -82,9 +83,6 @@
 
           // Flip cards
           flipToggle();
-
-          // Set global scroll pos
-          active_scroll_pos = $window.pageYOffset;
         }
         // Close open piece
         else {
@@ -109,15 +107,21 @@
      * Private function.
      */
     (function scollToggleBind() {
-      angular.element($window).bind("scroll", debounce(function($event) {
-        var curr_scroll_pos = $window.pageYOffset;
-        if (show_more_active && isObjEmpty(transforming)) {
+      angular.element($window).bind("scroll", function($event) {
+        if (show_more_active && !scroll_timeout) {
+          var curr_scroll_pos = $window.pageYOffset;
           var scroll_diff = Math.abs(curr_scroll_pos - active_scroll_pos);
           if (scroll_diff > 250) {
+            scroll_timeout = true;
+            // Set global scroll pos
+            active_scroll_pos = curr_scroll_pos;
             $scope.showMoreToggle($event, active_row, active_piece, true);
+            $timeout(function() {
+              scroll_timeout = false;
+            }, (config.transition_time * 2) + 50);
           }
         }
-      }, 40));
+      });
     })();
 
     /**
