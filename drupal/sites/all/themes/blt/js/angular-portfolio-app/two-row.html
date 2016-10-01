@@ -1,8 +1,8 @@
 <!-- left piece -->
 
-<div class="card-container left" ng-class="{'transforming':row.toggles.0.transforming, 'description-active':row.toggles.0.descriptionActive}">
+<div class="card-container left" ng-class="{'transforming':row.toggles.0.transforming, 'description-active':row.toggles.0.descriptionActive, 'fade':row.toggles.0.fade}">
   <div class="card-container-inner" ng-click="showMoreToggle($event, $index, 0)">
-    <div class="flip-card" ng-class="{'transform':row.toggles.0.transform, 'fade':row.toggles.0.fade, 'not-flippable':row.toggles.0.notFlippable}">
+    <div class="flip-card" ng-class="{'transform':row.toggles.0.transform, 'not-flippable':row.toggles.0.notFlippable}">
 
       <div class="front face">
         <img class="piece-image primary" ng-hide="row.toggles.0.hidePrimaryImg" src="{{row.0.primary_img}}"  ng-mouseover="row.toggles.0.frontHover = true"  ng-mouseleave="row.toggles.0.frontHover = false" />
@@ -35,9 +35,9 @@
 
 <!-- right piece -->
 
-<div class="card-container right" ng-class="{'transforming':row.toggles.1.transforming, 'description-active':row.toggles.1.descriptionActive}">
+<div class="card-container right" ng-class="{'transforming':row.toggles.1.transforming, 'description-active':row.toggles.1.descriptionActive, 'fade':row.toggles.1.fade}">
   <div class="card-container-inner" ng-click="showMoreToggle($event, $index, 1)">
-    <div class="flip-card" ng-class="{'transform':row.toggles.1.transform, 'fade':row.toggles.1.fade, 'not-flippable':row.toggles.1.notFlippable}">
+    <div class="flip-card" ng-class="{'transform':row.toggles.1.transform, 'not-flippable':row.toggles.1.notFlippable}">
 
       <div class="front face">
         <img class="piece-image primary" ng-hide="row.toggles.1.hidePrimaryImg" src="{{row.1.primary_img}}" ng-mouseover="row.toggles.1.frontHover = true"  ng-mouseleave="row.toggles.1.frontHover = false"  />

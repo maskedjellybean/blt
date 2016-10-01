@@ -58,6 +58,17 @@ p {
   line-height: 1.6em;
 }
 
+.main-content-container {
+  overflow: hidden;
+}
+
+/* Rows */
+
+/* Active row */
+.active-row {
+  z-index: 40;
+}
+
 /* Cards */
 
 .card-container {
@@ -66,6 +77,15 @@ p {
   margin: 0;
   z-index: 0;
   overflow: visible;
+  opacity: 1;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transition: opacity .4s linear;
+  -o-transition: opacity .4s linear;
+  -webkit-transition: opacity .4s linear;
+  transition: opacity .4s linear;
+  -webkit-transform-style: preserve-3d;
 }
 .card-container-inner {
   position: relative;
@@ -96,15 +116,14 @@ p {
 .flip-card {
   width: 100%;
   height: auto;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -moz-transition: all .4s linear;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear;
   cursor: pointer;
   border: none;
-  z-index: 10;
 }
 .two-row .flip-card {
   padding-bottom: 68.2%;
@@ -127,6 +146,7 @@ p {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-transition: all .4s linear;
+  -o-transition: opacity .4s linear;
   -webkit-transition: all .4s linear;
   transition: all .4s linear;
 }
@@ -149,45 +169,6 @@ p {
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg);
   transform: rotateY(360deg);
-}
-
-/* Deprecated close/open buttons @todo delete soon */
-
-.less-button, .more-button {
-  margin-top: 20px;
-  cursor: pointer;
-  -moz-transition: all .4s linear;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear;
-  float: left;
-}
-.show-more {
-  cursor: pointer;
-  -moz-transition: all .4s linear;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear;
-  float: right;
-}
-.more-icon, .less-icon {
-  float: left;
-  width: 29px;
-  height: 29px;
-  margin-right: 15px;
-  background-image: url("../../images/angular-portfolio-app/moreV2.png");
-  background-repeat: no-repeat;
-  background-size: 299%;
-  text-indent: -500px;
-}
-.less-icon {
-  background-position: -58px 0;
-}
-.show-more:hover .more-icon {
-  background-position: -29px 0;
-}
-.more-text, .less-text {
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 1rem;
 }
 
 /* New close button */
@@ -282,7 +263,7 @@ p {
   height: 100%;
   padding: 20px;
   background: white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .piece-title-company {
   margin: 0 auto;
@@ -308,11 +289,11 @@ img.hide {
 
 .fade {
   opacity: .3;
-  pointer-events: none;
-  cursor: pointer;
 }
 
 .not-flippable {
+  pointer-events: none;
+  cursor: pointer;
 }
 
 /* Bug fixes */
