@@ -59,7 +59,7 @@ p {
 }
 
 .main-content-container {
-  overflow: hidden;
+  width: 99.95%;
 }
 
 /* Rows */
