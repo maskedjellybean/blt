@@ -99,7 +99,12 @@
   <!-- Main content -->
 
   <div class="main-content-container container-fluid">
-    <div class="loading" ng-hide="rows && window_width"></div>
+    <div class="loading" ng-hide="rows && window_width">
+      <div class="loading__animation"></div>
+      <div class="loading__text">
+        Loading...
+      </div>
+    </div>
     <section class="main-content" ng-class="{'visible':rows}">
       <?php print render($page['content']); ?>
     </section>

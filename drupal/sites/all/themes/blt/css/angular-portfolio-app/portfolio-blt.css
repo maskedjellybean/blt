@@ -17,11 +17,16 @@ body {
 }*/
 
 .loading {
+  width: 120px;
+  margin: 100px auto;
+}
+
+.loading__animation {
   width: 90px;
   height: 70px;
+  margin: 0 auto;
   background-color: #5F5F5F;
 
-  margin: 100px auto;
   -webkit-animation: sk-rotateplane .7s infinite;
   animation: sk-rotateplane .7s infinite;
 }
@@ -35,6 +40,12 @@ body {
     transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
     -webkit-transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
   }
+}
+
+.loading__text {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
 }
 
 /* Bootstrap stuff */
