@@ -1,0 +1,19 @@
+{
+  "name": "node-modules",
+  "version": "1.0.0",
+  "description": "CONTENTS OF THIS FILE ---------------------",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-watch": "^4.3.10"
+  }
+}
