@@ -4,7 +4,7 @@
   config = {
     // Set number of pieces per row. Choose between 3 and 2.
     pieces_per_row: 2,
-    target: 'http://benteegarden.com/api/portfolio/mk/mk.jsonp?callback=JSON_CALLBACK',
+    target: 'http://www.benteegarden.com/api/portfolio/blt/mk.jsonp?callback=JSON_CALLBACK',
     theme_images_path: 'sites/all/themes/blt/images/angular-portfolio-app/',
     // Transition time for flipping animation. Needs to match .flip-card transition property in CSS.
     transition_time: 400,
