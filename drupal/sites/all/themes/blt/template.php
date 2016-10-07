@@ -10,9 +10,9 @@
  */
 function blt_preprocess_page(&$variables) {
   if (drupal_is_front_page()) {
-    drupal_add_css(drupal_get_path('theme', 'blt') . "/css/libraries/flexslider/flexslider.css");
-    drupal_add_css(drupal_get_path('theme', 'blt') . "/css/angular-portfolio-app/portfolio.css");
-    drupal_add_css(drupal_get_path('theme', 'blt') . "/css/angular-portfolio-app/portfolio-blt.css");
+    drupal_add_css(drupal_get_path('theme', 'blt') . "/angular-portfolio-app/css/libraries/flexslider/flexslider.css");
+    drupal_add_css(drupal_get_path('theme', 'blt') . "/angular-portfolio-app/css/portfolio.css");
+    drupal_add_css(drupal_get_path('theme', 'blt') . "/angular-portfolio-app/css/portfolio--blt.css");
   }
 }
 

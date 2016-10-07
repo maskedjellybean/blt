@@ -6,7 +6,7 @@
 /* aspect ratio for height using padding demo: http://dabblet.com/gist/2590942 */
 
 
-/* fonts */
+/* Fonts */
 
 @font-face {
   font-family: 'walkway-expand';
@@ -15,6 +15,8 @@
        url('../fonts/walkway_expand_black-webfont.ttf')  format('truetype'),
        url('../fonts/walkway_expand_black-webfont.svg#webfont') format('svg');
 }
+
+/* General */
 
 * {
   box-sizing: border-box;
@@ -62,6 +64,56 @@ p {
   width: 99.95%;
 }
 
+/* Loading animation src: http://tobiasahlin.com/spinkit/ */
+
+.loading {
+  width: 120px;
+  margin: 100px auto;
+}
+
+.loading__animation {
+  width: 90px;
+  height: 70px;
+  margin: 0 auto;
+  background-color: #5F5F5F;
+
+  -webkit-animation: sk-rotateplane .7s infinite;
+  animation: sk-rotateplane .7s infinite;
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
+    -webkit-transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
+  }
+}
+
+.loading__text {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+}
+
+/* Main content */
+
+.main-content-container {
+  margin: 0 auto;
+}
+
+.main-content {
+  opacity: 0;
+  transition: opacity, 1.6s;
+  -webkit-transition: opacity, 1.6s;
+  -moz-transition: opacity, 1.6s;
+}
+.main-content.visible {
+  opacity: 1;
+}
+
 /* Rows */
 
 /* Active row */
@@ -87,12 +139,7 @@ p {
   transition: opacity .4s linear;
   -webkit-transform-style: preserve-3d;
 }
-.card-container-inner {
-  position: relative;
-  -webkit-perspective: 1200px;
-  -moz-perspective: 1200px;
-  perspective: 1200px;
-}
+/* Two row */
 .two-row .card-container {
   width: 50%;
   padding-top: 10px;
@@ -103,14 +150,26 @@ p {
 .two-row .card-container.right {
   padding-left: 5px;
 }
+/* Three row */
 .three-row .card-container {
-  width: 31.5%;
+  width: 33.33%;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* Transform modifiers */
+.card-container.transforming {
+  z-index: 40;
 }
 .card-container.description-active {
   z-index: 1;
 }
-.card-container.transforming {
-  z-index: 40;
+
+.card-container-inner {
+  position: relative;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  perspective: 1200px;
 }
 
 .flip-card {
@@ -125,12 +184,15 @@ p {
   cursor: pointer;
   border: none;
 }
+/* Two row */
 .two-row .flip-card {
   padding-bottom: 68.2%;
 }
+/* Three row */
 .three-row .flip-card {
   padding-bottom: 125.3%;
 }
+/* Transform modifiers */
 .flip-card.transform {
   cursor: default;
 }
@@ -171,7 +233,7 @@ p {
   transform: rotateY(360deg);
 }
 
-/* New close button */
+/* Close button */
 
 .close-button {
   z-index: 1;
@@ -203,7 +265,7 @@ p {
 .close-button .face {
   width: 100%;
   height: 100%;
-  background-image: url(../../images/angular-portfolio-app/close-icon.png);
+  background-image: url(../images/close-icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

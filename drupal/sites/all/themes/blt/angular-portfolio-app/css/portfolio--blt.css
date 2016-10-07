@@ -4,55 +4,13 @@ body {
   background-color: #191919;
 }
 
-/* Loading animation src: http://tobiasahlin.com/spinkit/ */
-
-/*.loading {
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
-  margin: 0 auto;
-  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
-  animation: rotateplane 1.2s infinite ease-in-out;
-}*/
-
-.loading {
-  width: 120px;
-  margin: 100px auto;
-}
-
-.loading__animation {
-  width: 90px;
-  height: 70px;
-  margin: 0 auto;
-  background-color: #5F5F5F;
-
-  -webkit-animation: sk-rotateplane .7s infinite;
-  animation: sk-rotateplane .7s infinite;
-}
-
-@keyframes sk-rotateplane {
-  0% {
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
-    -webkit-transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
-  }
-}
-
-.loading__text {
-  margin-top: 30px;
-  text-align: center;
-  color: white;
-}
-
-/* Bootstrap stuff */
+/* Page container */
 
 .container-fluid {
-	max-width: 1410px;
+  max-width: 1410px;
 }
+
+/* Bootstrap */
 
 .navbar {
   position: fixed;
@@ -63,9 +21,11 @@ body {
   background-color: rgba(51, 51, 51, 0.52);
   /*box-shadow: 6px 1px 15px 1px #333;*/
 }
+
 .navbar-container {
   margin: 0 auto;
 }
+
 .navbar-header {
   padding: 10px 20px;
 }
@@ -76,12 +36,13 @@ body {
   width: 180px;
 }
 
-/* Header links */
+/* Header */
 
 .header-links {
   float: right;
   padding-top: 8px;
 }
+
 .header-links a {
   display: inline-block;
   padding-right: 10px;
@@ -101,14 +62,17 @@ body {
   padding-right: 0;
   border-right: none;
 }
+
 .header-links a img,
 .header-links a span {
   vertical-align: middle;
 }
+
 .header-links a img {
   display: none;
   width: 26px;
 }
+
 .header-links .phone img {
   width: 26px;
 }
@@ -116,17 +80,7 @@ body {
 /* Main content */
 
 .main-content-container {
-  margin: 0 auto;
   padding-top: 55px;
-}
-.main-content {
-  opacity: 0;
-  transition: opacity, 1.6s;
-  -webkit-transition: opacity, 1.6s;
-  -moz-transition: opacity, 1.6s;
-}
-.main-content.visible {
-  opacity: 1;
 }
 
 /* Footer */
@@ -143,9 +97,11 @@ body {
 .footer.visible {
   opacity: 1;
 }
+
 .footer-container {
   margin: 0 auto;
 }
+
 .footer-info {
   margin-top: 40px;
   margin-bottom: 30px;
@@ -160,23 +116,9 @@ body {
 .description {
   box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.18);
 }
+
 .piece-title {
   color: #7F9249;
-}
-.show-more {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  z-index: 5;
-}
-.more-text, .less-text {
-  color: white;
-  transition: color, .2s;
-  -webkit-transition: color, .2s;
-  -moz-transition: color, .2s;
-}
-.description-active .more-text {
-  color: #666;
 }
 
 .flip-help img {

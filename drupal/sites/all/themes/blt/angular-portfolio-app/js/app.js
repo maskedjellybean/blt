@@ -2,10 +2,12 @@
 
   // Global config settings @todo How should this actually be done in Angular?
   config = {
+    // Set the theme to use. Choose between 'blt' and 'mk'.
+    theme: 'blt',
     // Set number of pieces per row. Choose between 3 and 2.
     pieces_per_row: 2,
     target: 'http://www.benteegarden.com/api/portfolio/blt/mk.jsonp?callback=JSON_CALLBACK',
-    theme_images_path: 'sites/all/themes/blt/images/angular-portfolio-app/',
+    theme_images_path: 'sites/all/themes/blt/angular-portfolio-app/images/',
     // Transition time for flipping animation. Needs to match .flip-card transition property in CSS.
     transition_time: 400,
     // Time between flipping animations.
@@ -16,7 +18,7 @@
   config.pieces_per_row_zero = config.pieces_per_row - 1;
   config.ppr_key = 'ppr_' + config.pieces_per_row.toString();
   config.transition_time_padding = config.transition_time + config.transition_time_between;
-  config.transition_time_full = (config.transition_time * config.pieces_per_row) + config.transition_time_between;
+  config.transition_time_full = (config.transition_time * 2) + config.transition_time_between;
 
   // Controllers
 
@@ -28,6 +30,7 @@
   .controller('PortfolioController', ['$scope', '$timeout', '$window', 'rowsFactory', function ($scope, $timeout, $window, rowsFactory) {
     $scope.overflow_hidden = false;
     // Assign config to scope so it can be accessed in template.
+    $scope.theme = config.theme;
     $scope.pieces_per_row = config.pieces_per_row;
 
     // Call factory, returns obj of pieces divided into rows

@@ -77,16 +77,12 @@
     <!-- Angular Portfolio App JS -->
 
     <!-- Libraries/Frameworks -->
-    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/angular/angular.min.js"></script>
-    <script type="text/javascript" src="sites/all/themes/blt/js/libraries/flexslider/angular-flexslider.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/libraries/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/libraries/angular/angular.min.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/libraries/flexslider/angular-flexslider.js"></script>
 
     <!-- Custom App -->
-    <!-- <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/modules-bootstrap.min.js"></script> -->
-  <!--     // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/app.min.js"></script>
-    // <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/min/factories.min.js"></script> -->
-
-    <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/app.js"></script>
-    <script type="text/javascript" src="sites/all/themes/blt/js/angular-portfolio-app/factories.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/app.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/factories.js"></script>
   </body>
 </html>

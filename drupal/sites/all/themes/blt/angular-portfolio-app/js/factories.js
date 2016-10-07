@@ -139,11 +139,11 @@
         // If right
         else if (mod === 2) {
           data.portfolio[p].row_position = 'right';
-          neighbor1 = p - 1;
+          neighbor1 = p - 2;
           if (typeof secondary_images[neighbor1] != 'undefined') {
             neighbor1 = secondary_images[neighbor1][1];
           }
-          neighbor2 = p - 2;
+          neighbor2 = p - 1;
           if (typeof secondary_images[neighbor2] != 'undefined') {
             neighbor2 = secondary_images[neighbor2][1];
           }

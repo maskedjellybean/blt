@@ -86,12 +86,12 @@
 	<div class="desktop-controller" ng-controller="desktopController" ng-show="window_width >= 768;">
     <div class="portfolio-row two-row clearfix" ng-if="pieces_per_row == 2" ng-repeat="row in rows.ppr_2" ng-class="{'active-row':row.toggles.active_row}">
       <ng-include
-        src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/two-row.html'?>'">
+        src="'<?php print base_path() . path_to_theme() . '/angular-portfolio-app/templates/two-row.html'?>'">
       </ng-include>
     </div>
     <div class="portfolio-row three-row clearfix" ng-if="pieces_per_row == 3" ng-repeat="row in rows.ppr_3" ng-class="{'active-row':row.toggles.active_row}">
       <ng-include
-        src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/three-row.html'?>'">
+        src="'<?php print base_path() . path_to_theme() . '/angular-portfolio-app/templates/three-row.html'?>'">
       </ng-include>
     </div>
   </div>
@@ -101,7 +101,7 @@
   <div class="mobile-controller" ng-controller="mobileController" ng-show="window_width < 768;">
     <div class="portfolio-row mobile-row clearfix" ng-repeat="row in rows.ppr_1">
       <ng-include
-        src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/mobile-row.html'?>'">
+        src="'<?php print base_path() . path_to_theme() . '/angular-portfolio-app/templates/mobile-row.html'?>'">
       </ng-include>
     </div>
   </div>
