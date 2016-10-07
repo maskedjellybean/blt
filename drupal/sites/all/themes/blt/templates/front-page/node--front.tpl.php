@@ -84,9 +84,14 @@
   <!-- Desktop controller/view -->
 
 	<div class="desktop-controller" ng-controller="desktopController" ng-show="window_width >= 768;">
-    <div class="portfolio-row two-row clearfix" ng-repeat="row in rows.ppr_2" ng-class="{'active-row':row.toggles.active_row}">
+    <div class="portfolio-row two-row clearfix" ng-if="pieces_per_row == 2" ng-repeat="row in rows.ppr_2" ng-class="{'active-row':row.toggles.active_row}">
       <ng-include
         src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/two-row.html'?>'">
+      </ng-include>
+    </div>
+    <div class="portfolio-row three-row clearfix" ng-if="pieces_per_row == 3" ng-repeat="row in rows.ppr_3" ng-class="{'active-row':row.toggles.active_row}">
+      <ng-include
+        src="'<?php print base_path() . path_to_theme() . '/js/angular-portfolio-app/three-row.html'?>'">
       </ng-include>
     </div>
   </div>

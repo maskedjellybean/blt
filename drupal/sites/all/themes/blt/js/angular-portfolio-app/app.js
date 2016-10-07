@@ -12,7 +12,7 @@
     transition_time_between: 50,
   };
 
-  // Configure more global config values
+  // Configure more global config values.
   config.pieces_per_row_zero = config.pieces_per_row - 1;
   config.ppr_key = 'ppr_' + config.pieces_per_row.toString();
   config.transition_time_padding = config.transition_time + config.transition_time_between;
@@ -27,6 +27,8 @@
   angular.module('portfolio', ['angular-flexslider'])
   .controller('PortfolioController', ['$scope', '$timeout', '$window', 'rowsFactory', function ($scope, $timeout, $window, rowsFactory) {
     $scope.overflow_hidden = false;
+    // Assign config to scope so it can be accessed in template.
+    $scope.pieces_per_row = config.pieces_per_row;
 
     // Call factory, returns obj of pieces divided into rows
     if (!$scope.rows) {
