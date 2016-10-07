@@ -299,7 +299,7 @@ function portfolio_field_default_field_instances() {
     'bundle' => 'portfolio_piece',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This is the title that will be displayed on the portfolio piece.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -318,7 +318,7 @@ function portfolio_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_visible_title',
     'label' => 'Visible Title',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -343,6 +343,7 @@ function portfolio_field_default_field_instances() {
   t('Images');
   t('Programs/Technologies/Mediums');
   t('Site');
+  t('This is the title that will be displayed on the portfolio piece.');
   t('Visible Title');
 
   return $field_instances;

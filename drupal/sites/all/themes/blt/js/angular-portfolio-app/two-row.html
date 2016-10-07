@@ -16,9 +16,9 @@
               <div class="back face"></div>
             </div>
           </div>
-          <span class="piece-date"> {{row.0.date}} </span>
-          <h3 class="piece-title"> {{row.0.title}} </h3>
-          <span class="piece-programs"> {{row.0.programs}} </span>
+          <span class="piece-date" ng-if="row.0.date"> {{row.0.date}} </span>
+          <h3 class="piece-title" ng-if="row.0.title"> {{row.0.title}} </h3>
+          <span class="piece-programs" ng-if="row.0.programs"> {{row.0.programs}} </span>
           <div class="piece-description-text">
             <p> {{row.0.description}} </p>
           </div>
@@ -51,9 +51,9 @@
               <div class="back face"></div>
             </div>
           </div>
-          <span class="piece-date"> {{row.1.date}} </span>
-          <h3 class="piece-title"> {{row.1.title}} </h3>
-          <span class="piece-programs"> {{row.1.programs}} </span>
+          <span class="piece-date" ng-if="row.1.date"> {{row.1.date}} </span>
+          <h3 class="piece-title" ng-if="row.1.title"> {{row.1.title}} </h3>
+          <span class="piece-programs" ng-if="row.1.programs"> {{row.1.programs}} </span>
           <div class="piece-description-text">
             <p> {{row.1.description}} </p>
           </div>
