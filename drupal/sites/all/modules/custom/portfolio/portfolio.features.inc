@@ -37,9 +37,9 @@ function portfolio_node_info() {
     'portfolio_piece' => array(
       'name' => t('Portfolio Piece'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Create a new Portfolio Piece.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Admin Title (not visible)'),
       'help' => '',
     ),
   );

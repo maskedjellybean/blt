@@ -53,15 +53,12 @@ function portfolio_views_default_views() {
     'portfolio_megan' => 'portfolio_megan',
     'portfolio_ben' => 0,
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Visible Title */
+  $handler->display->display_options['fields']['field_visible_title']['id'] = 'field_visible_title';
+  $handler->display->display_options['fields']['field_visible_title']['table'] = 'field_data_field_visible_title';
+  $handler->display->display_options['fields']['field_visible_title']['field'] = 'field_visible_title';
+  $handler->display->display_options['fields']['field_visible_title']['label'] = 'title';
+  $handler->display->display_options['fields']['field_visible_title']['element_label_colon'] = FALSE;
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_date_text']['id'] = 'field_date_text';
   $handler->display->display_options['fields']['field_date_text']['table'] = 'field_data_field_date_text';
