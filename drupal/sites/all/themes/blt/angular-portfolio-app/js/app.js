@@ -7,7 +7,7 @@
     // Set number of pieces per row. Choose between 3 and 2.
     pieces_per_row: 2,
     target: 'http://www.benteegarden.com/api/portfolio/blt/mk.jsonp?callback=JSON_CALLBACK',
-    theme_images_path: 'sites/all/themes/blt/angular-portfolio-app/images/',
+    app_path: 'sites/all/themes/blt/angular-portfolio-app/',
     // Transition time for flipping animation. Needs to match .flip-card transition property in CSS.
     transition_time: 400,
     // Time between flipping animations.
@@ -32,6 +32,7 @@
     // Assign config to scope so it can be accessed in template.
     $scope.theme = config.theme;
     $scope.pieces_per_row = config.pieces_per_row;
+    $scope.app_path = config.app_path;
 
     // Call factory, returns obj of pieces divided into rows
     if (!$scope.rows) {
@@ -65,8 +66,6 @@
     $scope.curr_transforming = false;
     var flip_start_counter = 0;
     var flip_complete_counter = 0;
-    // Add theme_images_path to scope so it is accessible in View.
-    $scope.theme_images_path = config.theme_images_path;
 
     /**
      * See more functionality. Calls flipping function, calls function to fade rows.

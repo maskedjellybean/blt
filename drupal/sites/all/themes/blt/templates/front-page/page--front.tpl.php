@@ -95,26 +95,13 @@
   </div>
 </header>
 
+<ng-include src="'<?php print base_path() . path_to_theme() . '/angular-portfolio-app/templates/main.html'?>'">
+</ng-include>
 
-  <!-- Main content -->
+<!-- Footer -->
 
-  <div class="main-content-container container-fluid">
-    <div class="loading" ng-hide="rows && window_width">
-      <div class="loading__animation"></div>
-      <div class="loading__text">
-        Loading...
-      </div>
-    </div>
-    <section class="main-content" ng-class="{'visible':rows}">
-      <?php print render($page['content']); ?>
-    </section>
+<footer class="footer" ng-class="{'visible':rows}">
+  <div class="footer-container container-fluid">
+    <p class="footer-info">This site was built using AngularJS with a Drupal back-end.</p>
   </div>
-
-  <!-- Footer -->
-
-  <footer class="footer" ng-class="{'visible':rows}">
-    <div class="footer-container container-fluid">
-      <p class="footer-info">This site was built using AngularJS with a Drupal back-end.</p>
-    </div>
-  </footer>
-
+</footer>
