@@ -369,32 +369,38 @@ x:-o-prefocus, .face {
 
 /* Mobile/Flexslider */
 
-.flexslider {
+.mobile-row .flexslider {
   margin: 0;
   border: none;
 }
-.flexslider-container {
+
+.mobile-row .flexslider-container {
   width: 100%;
   margin: 20px auto 0 auto;
 }
-.flex-control-nav {
+
+.mobile-row .flex-control-nav {
   bottom: -30px;
   z-index: 30;
 }
-.flex-control-paging li a {
+
+.mobile-row .flex-control-paging li a {
   width: 15px;
   height: 15px;
 }
-.flex-direction-nav {
+
+.mobile-row .flex-direction-nav {
   display: none;
-}
-.mobile-row .description {
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 @media screen and (max-width: 768px) {
   .header-links {
     display: none;
+  }
+
+  .mobile-row .description {
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
