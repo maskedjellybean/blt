@@ -35,21 +35,21 @@ a:visited {
 
 /* Page container */
 
-#page {
+.page {
   max-width: 1370px;
   margin: 0 auto 0 auto;
 }
 
 /* Header */
 
-#header-expand {
+.header-expand {
   width: 100%;
   margin-bottom: 1%;
   background: #067ca8;
   box-shadow: 0 -5px 23px 5px #777;
 }
 
-#header {
+.header {
   max-width: 1370px;
   height: 90px;
   margin: 0 auto;
@@ -58,30 +58,30 @@ a:visited {
   overflow: auto;
 }
 
-#logo {
+.logo {
   width: 100px;
   float: left;
 }
 
-#logo img {
+.logo img {
   margin-top: -3px;
   margin-left: -3px;
 }
 
-#header-info {
+.header-info {
   float: right;
   width: 30.5%;
   font-size: .8em;
 }
 
-h1#site-name {
+h1.site-name {
   margin: 0;
   border-bottom: 2px solid #999;
   color: #0E7DAA;
   padding: 0 2%;
 }
 
-#header #name {
+.header .name {
   margin: 0;
   border-bottom: 2px solid #999;
   padding: 0 3px 0 13px;
@@ -89,22 +89,22 @@ h1#site-name {
   font-family: walkway-expand;
 }
 
-#header #name h1 {
+.header .name h1 {
   margin: 0;
 }
 
-span.first-name {
+.first-name {
   padding-right: 10px;
   margin-right: 10px;
   border-right: #999 solid 2px;
   color: white;
 }
 
-span.last-name {
+.last-name {
   color: #B7B5B5;
 }
 
-ul#header-links {
+.header-links {
   margin: 0;
   padding: 0;
   -webkit-margin-before: 0;
@@ -112,7 +112,7 @@ ul#header-links {
   -webkit-padding-start: 0;
 }
 
-ul#header-links li {
+.header-links li {
   float: left;
   background: url(../../images/bullet.png) left center no-repeat;
   padding: .5em 3.5%;
@@ -120,11 +120,11 @@ ul#header-links li {
   color: white;
 }
 
-ul#header-links li a {
+.header-links li a {
   color: white;
 }
 
-ul#header-links li a:hover {
+.header-links li a:hover {
   color: white;
 }
 

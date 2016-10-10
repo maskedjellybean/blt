@@ -38,18 +38,29 @@ body {
 
 /* Header */
 
-.header-links {
+.header-info {
   float: right;
   padding-top: 8px;
 }
 
-.header-links a {
+.header-links {
+  list-style: none;
+}
+
+.header-links li {
   display: inline-block;
   padding-right: 10px;
   padding-left: 10px;
+  border-right: 1px solid #ccc;
+}
+.header-links li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.header-links a {
   font-size: 14px;
   color: #fff;
-  border-right: 1px solid #ccc;
   transition: color, .2s;
   text-decoration: none;
 }
@@ -57,10 +68,6 @@ body {
 .header-links a:active,
 .header-links a:focus {
   color: #90AE3F;
-}
-.header-links a:last-of-type {
-  padding-right: 0;
-  border-right: none;
 }
 
 .header-links a img,
@@ -80,6 +87,7 @@ body {
 /* Main content */
 
 .main-content-container {
+  margin: 0 auto;
   padding-top: 55px;
 }
 

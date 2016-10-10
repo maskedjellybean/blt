@@ -84,12 +84,14 @@
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </div>
       <?php endif; ?>
-      <div class="header-links">
-        <!-- <a class="phone" href="tel:920-342-5990" title="Call me"><img src="<?php print path_to_theme() . '/images/phone.png'; ?>"><span>920.342.5990</span></a> -->
-        <a class="email" href="mailto:benteegarden@gmail.com" title="Email me"><img src="<?php print path_to_theme() . '/images/email.png'; ?>"><span>benteegarden@gmail.com</span></a>
-        <a class="resume" href="docs/Teegarden-Ben_Resume.pdf" title="See my resume" target="_blank"><img src="<?php print path_to_theme() . '/images/resume.png'; ?>"><span>resume.pdf</span></a>
-        <a class="linkedin" href="http://www.linkedin.com/pub/ben-teegarden/70/749/980" title="Visit my LinkedIn" target="_blank"><img src="<?php print path_to_theme() . '/images/linkedin.png'; ?>"><span>linkedin</span></a>
-        <a class="github" href="https://github.com/maskedjellybean" title="Visit my GitHub" target="_blank"><span>github</span></a>
+      <div class="header-info">
+        <ul class="header-links">
+          <!-- <a class="phone" href="tel:920-342-5990" title="Call me"><img src="<?php print path_to_theme() . '/images/phone.png'; ?>"><span>920.342.5990</span></a> -->
+          <li class="email"><a href="mailto:benteegarden@gmail.com" title="Email me"><img src="<?php print path_to_theme() . '/images/email.png'; ?>"><span>benteegarden@gmail.com</span></a></li>
+          <li class="resume"><a href="docs/Teegarden-Ben_Resume.pdf" title="See my resume" target="_blank"><img src="<?php print path_to_theme() . '/images/resume.png'; ?>"><span>resume.pdf</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/pub/ben-teegarden/70/749/980" title="Visit my LinkedIn" target="_blank"><img src="<?php print path_to_theme() . '/images/linkedin.png'; ?>"><span>linkedin</span></a></li>
+          <li class="github"><a href="https://github.com/maskedjellybean" title="Visit my GitHub" target="_blank"><span>github</span></a></li>
+        </ul>
       </div>
     </div>
   </div>
