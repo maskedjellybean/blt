@@ -32,13 +32,6 @@ a:visited {
   color: white;
 }
 
-/* Page container */
-
-.page {
-  max-width: 1370px;
-  margin: 0 auto;
-}
-
 /* Header */
 
 .header-expand {
@@ -116,6 +109,12 @@ a:visited {
 
 .header-links li a:hover {
   color: white;
+}
+
+/* Main content */
+
+.main-content-container {
+  max-width: 1370px;
 }
 
 /* Cards */

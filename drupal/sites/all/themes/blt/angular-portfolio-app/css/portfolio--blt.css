@@ -4,12 +4,6 @@ body {
   background-color: #191919;
 }
 
-/* Page container */
-
-.container-fluid {
-  max-width: 1410px;
-}
-
 /* Bootstrap */
 
 .navbar {
@@ -87,6 +81,7 @@ body {
 /* Main content */
 
 .main-content-container {
+  max-width: 1410px;
   margin: 0 auto;
   padding-top: 55px;
 }
