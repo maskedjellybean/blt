@@ -180,12 +180,12 @@ p {
   cursor: pointer;
   border: none;
 }
-/* Two row */
-.two-row .flip-card {
+/* Landscape image ratio */
+.image-ratio--landscape .flip-card {
   padding-bottom: 68.2%;
 }
-/* Three row */
-.three-row .flip-card {
+/* Portrait image ratio */
+.image-ratio--portrait .flip-card {
   padding-bottom: 125.3%;
 }
 

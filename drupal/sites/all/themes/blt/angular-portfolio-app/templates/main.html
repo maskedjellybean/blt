@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <section class="main-content" ng-class="{'visible':rows}">
+  <section class="main-content" ng-class="{'visible':rows, 'image-ratio--portrait':image_ratio == 'portrait', 'image-ratio--landscape':image_ratio == 'landscape'}">
       <!-- Desktop controller/view -->
 
       <div class="desktop-controller" ng-controller="desktopController" ng-show="window_width >= 768">

@@ -6,6 +6,8 @@
     theme: 'blt',
     // Set number of pieces per row. Choose between 3 and 2.
     pieces_per_row: 2,
+    // Set image ratio. Choose between 'portrait' or 'landscape'.
+    image_ratio: 'landscape',
     target: 'http://www.benteegarden.com/api/portfolio/blt/mk.jsonp?callback=JSON_CALLBACK',
     app_path: 'sites/all/themes/blt/angular-portfolio-app/',
     // Transition time for flipping animation. Needs to match .flip-card transition property in CSS.
@@ -31,6 +33,7 @@
     $scope.overflow_hidden = false;
     // Assign config to scope so it can be accessed in template.
     $scope.theme = config.theme;
+    $scope.image_ratio = config.image_ratio;
     $scope.pieces_per_row = config.pieces_per_row;
     $scope.app_path = config.app_path;
 
