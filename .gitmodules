@@ -1,0 +1,3 @@
+[submodule "drupal/sites/all/themes/blt/angular-portfolio-app"]
+	path = drupal/sites/all/themes/blt/angular-portfolio-app
+	url = git@github.com:maskedjellybean/angular-portfolio-app.git
