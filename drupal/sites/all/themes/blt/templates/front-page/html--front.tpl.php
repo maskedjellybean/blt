@@ -85,6 +85,7 @@
     <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/app.js"></script>
     <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/provider--config.js"></script>
     <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/config.js"></script>
-    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/factories.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/factory--image-preloader.js"></script>
+    <script type="text/javascript" src="sites/all/themes/blt/angular-portfolio-app/js/factory--rows.js"></script>
   </body>
 </html>
