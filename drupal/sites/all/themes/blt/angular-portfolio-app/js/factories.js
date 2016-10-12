@@ -1,11 +1,18 @@
+/**
+ * Factories for Angular Portfolio App.
+ */
+
 (function() {
   angular.module('portfolio')
 
   /**
    * Factory to retrieve, clean-up, sort and return data from Drupal JSON endpoint.
    */
-  .factory('rowsFactory', function($http, $q, preloaderFactory) {
+  .factory('rowsFactory', function($http, $q, preloaderFactory, appConfig) {
     delete $http.defaults.headers.common['X-Requested-With'];
+
+    // Retrieve app config from provider.
+    var config = appConfig.getConfig();
 
     /**
      * Makes call to retrieve JSON data.

@@ -1,36 +1,20 @@
+/**
+ * Main file for Angular Portfolio App.
+ * Contains controllers.
+ */
+
 (function() {
-
-  // Global config settings @todo How should this actually be done in Angular?
-  config = {
-    // Set the theme to use. Choose between 'blt' and 'mk'.
-    theme: 'blt',
-    // Set number of pieces per row. Choose between 3 and 2.
-    pieces_per_row: 2,
-    // Set image ratio. Choose between 'portrait' or 'landscape'.
-    image_ratio: 'landscape',
-    target: 'http://www.benteegarden.com/api/portfolio/blt/mk.jsonp?callback=JSON_CALLBACK',
-    app_path: 'sites/all/themes/blt/angular-portfolio-app/',
-    // Transition time for flipping animation. Needs to match .flip-card transition property in CSS.
-    transition_time: 400,
-    // Time between flipping animations.
-    transition_time_between: 50,
-  };
-
-  // Configure more global config values.
-  config.pieces_per_row_zero = config.pieces_per_row - 1;
-  config.ppr_key = 'ppr_' + config.pieces_per_row.toString();
-  config.transition_time_padding = config.transition_time + config.transition_time_between;
-  config.transition_time_full = (config.transition_time * 2) + config.transition_time_between;
-
-  // Controllers
+  angular.module('portfolio', ['angular-flexslider'])
 
   /**
    * Parent Controller.
    * Set on <body> and contains all other controllers.
    */
-  angular.module('portfolio', ['angular-flexslider'])
-  .controller('PortfolioController', ['$scope', '$timeout', '$window', 'rowsFactory', function ($scope, $timeout, $window, rowsFactory) {
+  .controller('PortfolioController', ['$scope', '$timeout', '$window', 'rowsFactory', 'appConfig', function ($scope, $timeout, $window, rowsFactory, appConfig) {
+
     $scope.overflow_hidden = false;
+    // Retrieve app config from provider.
+    var config = appConfig.getConfig();
     // Assign config to scope so it can be accessed in template.
     $scope.theme = config.theme;
     $scope.image_ratio = config.image_ratio;
@@ -57,18 +41,20 @@
    * Desktop Controller.
    * Used for large browser size.
    */
-  .controller('desktopController', ['$scope', '$q', '$timeout', '$interval', '$window', function ($scope, $q, $timeout, $interval, $window) {
-    // True whenever any piece is expanded (show more is clicked)
+  .controller('desktopController', ['$scope', '$q', '$timeout', '$interval', '$window', 'appConfig', function ($scope, $q, $timeout, $interval, $window, appConfig) {
+    // Retrieve app config from provider.
+    var config = appConfig.getConfig();
+    // True whenever any piece is active (show more is clicked).
     var show_more_active = false;
-    // Keep track of currently active row and piece, false if no active
+    // Keep track of currently active row and piece, false if no active.
     var active_row = false;
     var active_piece = false;
     var active_scroll_pos = 0;
     var scroll_timeout = false;
-    // True if any pieces are currently in the process of transforming.
-    $scope.curr_transforming = false;
     var flip_start_counter = 0;
     var flip_complete_counter = 0;
+    // True if any pieces are currently in the process of transforming/flipping.
+    $scope.curr_transforming = false;
 
     /**
      * See more functionality. Calls flipping function, calls function to fade rows.
