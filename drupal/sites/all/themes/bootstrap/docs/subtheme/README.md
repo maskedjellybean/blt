@@ -22,8 +22,10 @@ topic will focus on the two primarily and most common ways.
 
 - @link subtheme_cdn CDN Starterkit @endlink - uses the "out-of-the-box"
   CSS and JavaScript files served by the [jsDelivr CDN].
-- @link subtheme_less LESS Starterkit @endlink - uses the [Bootstrap Framework]
-  [LESS] source files and a local [LESS] preprocessor.
+- @link subtheme_less Less Starterkit @endlink - uses the [Bootstrap Framework]
+  source files and a local [Less] preprocessor.
+- @link subtheme_sass Sass Starterkit @endlink - uses the [Bootstrap Framework]
+  source files and a local [Sass] preprocessor.
 
 #### Create a New Sub-theme {#create}
 
@@ -31,9 +33,11 @@ topic will focus on the two primarily and most common ways.
    `./bootstrap/starterkits` folder into `sites/all/themes` or a respective
    `sites/*/themes` folder.
 2. Rename the folder to a unique machine readable name. This will be your
-   sub-theme's "name". For this example and future examples we'll use `subtheme`.
-3. Rename `./subtheme/cdn.starterkit` or, if using the LESS Starterkit, `./subtheme/less.starterkit` to match the folder name and append
-   `.info` (e.g. `./subtheme/subtheme.info`).
+   sub-theme's "name". For this example and future examples we'll use
+   `subtheme`.
+3. Rename `./subtheme/cdn.starterkit` or, if using the LESS Starterkit,
+   `./subtheme/less.starterkit` to match the folder name and append `.info`
+   (e.g. `./subtheme/subtheme.info`).
 4. Open `./subtheme/subtheme.info` and change the name, description and any
    other properties to suite your needs.
 
@@ -54,6 +58,7 @@ set default` link next to your newly created sub-theme.
 for additional documentation pertaining to the chosen Starterkit.
 
 [Drupal Bootstrap]: https://www.drupal.org/project/bootstrap
-[Bootstrap Framework]: http://getbootstrap.com
-[jsDelivr CDN]: http://www.jsdelivr.com
-[LESS]: http://lesscss.org
+[Bootstrap Framework]: https://getbootstrap.com/docs/3.3/
+[jsDelivr CDN]: https://www.jsdelivr.com
+[Less]: http://lesscss.org
+[Sass]: http://sass-lang.com
