@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Uninstall unnecessary modules.
+ */
+function portfolio_update_7001() {
+  module_disable(array('simple_gmap', 'media_youtube', 'media_vimeo'));
+  drupal_uninstall_modules(array('simple_gmap'));
+}
