@@ -11,6 +11,6 @@ function portfolio_update_7001() {
 /**
  * Install admin_theme module.
  */
-function portfolio_update_70012() {
+function portfolio_update_7002() {
   module_enable(array('admin_theme'));
 }
