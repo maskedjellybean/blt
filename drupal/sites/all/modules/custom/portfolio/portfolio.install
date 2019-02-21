@@ -7,3 +7,10 @@ function portfolio_update_7001() {
   module_disable(array('simple_gmap', 'media_youtube', 'media_vimeo'));
   drupal_uninstall_modules(array('simple_gmap'));
 }
+
+/**
+ * Install admin_theme module.
+ */
+function portfolio_update_70012() {
+  module_enable(array('admin_theme'));
+}

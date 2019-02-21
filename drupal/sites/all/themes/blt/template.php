@@ -50,3 +50,4 @@ function blt_js_alter(&$javascript) {
     unset($javascript[drupal_get_path('module', 'caption_filter') . '/js/caption-filter.js']);
   }
 }
+
