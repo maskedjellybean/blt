@@ -1,8 +1,8 @@
 /* Style checkbox and radio buttons in Chrome + Safari + Opera */
 @supports (-webkit-appearance:none) {
-  .style-checkboxes input[type=checkbox],
-  .style-checkboxes input[type=radio],
-  .style-checkboxes input[type=checkbox]#edit-delete {
+  .style-checkboxes input[type=checkbox]:not(.element-hidden),
+  .style-checkboxes input[type=radio]:not(.element-hidden),
+  .style-checkboxes input[type=checkbox]#edit-delete:not(.element-hidden) {
     -webkit-appearance:none;
     display: inline-block;
     position: relative;
@@ -463,4 +463,8 @@ ul.action-links a:hover {
 
 body.sticky-actions .form-actions.form-wrapper {
   box-shadow: -20px 2px 40px rgba(0,0,0,0.4);
+}
+
+body.sticky-actions .ajax-new-content .form-actions.form-wrapper {
+  box-shadow: none;
 }
