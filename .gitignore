@@ -3,4 +3,13 @@ db/
 drupal-old/
 .DS_Store
 
+# Ignore configuration files that may contain sensitive information.
+drupal/sites/*/settings.php
+drupal/sites/*/local_settings.php
+
+# Ignore paths that contain user-generated content.
+drupal/sites/*/files
+drupal/sites/*/private
+
+
 
